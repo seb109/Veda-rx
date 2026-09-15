@@ -1,0 +1,34 @@
+[
+  {
+    "id": "EUROPEAN",
+    "label": "European"
+  },
+  {
+    "id": "EAST_ASIAN",
+    "label": "East Asian"
+  },
+  {
+    "id": "SOUTH_ASIAN",
+    "label": "South Asian"
+  },
+  {
+    "id": "SUB_SAHARAN_AFRICAN",
+    "label": "Sub-Saharan African"
+  },
+  {
+    "id": "SOUTHWEST_ASIAN",
+    "label": "Southwest Asian"
+  },
+  {
+    "id": "PACIFIC_ISLANDER",
+    "label": "Pacific Islander"
+  },
+  {
+    "id": "NORTH_AMERICAN",
+    "label": "North American"
+  },
+  {
+    "id": "LATIN_AMERICAN",
+    "label": "Latin American"
+  }
+]

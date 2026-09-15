@@ -1,0 +1,62 @@
+[
+  {
+    "id": "CYP2D6_ULTRARAPID",
+    "gene": "CYP2D6",
+    "label": "Ultrarapid metabolizer",
+    "activity": "increased"
+  },
+  {
+    "id": "CYP2D6_NORMAL",
+    "gene": "CYP2D6",
+    "label": "Normal metabolizer",
+    "activity": "expected"
+  },
+  {
+    "id": "CYP2D6_INTERMEDIATE",
+    "gene": "CYP2D6",
+    "label": "Intermediate metabolizer",
+    "activity": "reduced"
+  },
+  {
+    "id": "CYP2D6_POOR",
+    "gene": "CYP2D6",
+    "label": "Poor metabolizer",
+    "activity": "greatly_reduced"
+  },
+  {
+    "id": "CYP2C19_INTERMEDIATE",
+    "gene": "CYP2C19",
+    "label": "Intermediate metabolizer",
+    "activity": "reduced"
+  },
+  {
+    "id": "CYP2C19_POOR",
+    "gene": "CYP2C19",
+    "label": "Poor metabolizer",
+    "activity": "greatly_reduced"
+  },
+  {
+    "id": "HLA_B_15_02_POSITIVE",
+    "gene": "HLA-B",
+    "label": "HLA-B*15:02 carrier",
+    "activity": "carrier"
+  },
+  {
+    "id": "HLA_B_15_02_NEGATIVE",
+    "gene": "HLA-B",
+    "label": "HLA-B*15:02 non-carrier",
+    "activity": "non_carrier"
+  },
+  {
+    "id": "HLA_B_57_01_POSITIVE",
+    "gene": "HLA-B",
+    "label": "HLA-B*57:01 carrier",
+    "activity": "carrier"
+  },
+  {
+    "id": "HLA_B_57_01_NEGATIVE",
+    "gene": "HLA-B",
+    "label": "HLA-B*57:01 non-carrier",
+    "activity": "non_carrier"
+  }
+]

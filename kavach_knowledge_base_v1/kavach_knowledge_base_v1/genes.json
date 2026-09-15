@@ -1,0 +1,49 @@
+[
+  {
+    "id": "CYP2D6",
+    "name": "Cytochrome P450 2D6",
+    "category": "drug_metabolism",
+    "mechanisms": [
+      "drug_activation",
+      "drug_clearance"
+    ],
+    "phenotype_model": "activity_based"
+  },
+  {
+    "id": "CYP2C19",
+    "name": "Cytochrome P450 2C19",
+    "category": "drug_metabolism",
+    "mechanisms": [
+      "drug_activation"
+    ],
+    "phenotype_model": "activity_based"
+  },
+  {
+    "id": "HLA-B",
+    "name": "Human Leukocyte Antigen B",
+    "category": "immune_response",
+    "mechanisms": [
+      "immune_mediated_adverse_reaction"
+    ],
+    "phenotype_model": "carrier_status"
+  },
+  {
+    "id": "HLA-A",
+    "name": "Human Leukocyte Antigen A",
+    "category": "immune_response",
+    "mechanisms": [
+      "immune_mediated_adverse_reaction"
+    ],
+    "phenotype_model": "carrier_status"
+  },
+  {
+    "id": "VKORC1",
+    "name": "Vitamin K Epoxide Reductase Complex Subunit 1",
+    "category": "drug_sensitivity",
+    "mechanisms": [
+      "dose_sensitivity"
+    ],
+    "phenotype_model": "genotype_based",
+    "status": "future_extension"
+  }
+]

@@ -1,0 +1,22 @@
+[
+  {
+    "id": "PRODRUG_ACTIVATION",
+    "label": "Prodrug requiring metabolic activation"
+  },
+  {
+    "id": "ACTIVE_DRUG_METABOLISM",
+    "label": "Active drug metabolism/clearance"
+  },
+  {
+    "id": "IMMUNE_MEDIATED",
+    "label": "Immune-mediated adverse reaction"
+  },
+  {
+    "id": "NARROW_THERAPEUTIC_INDEX",
+    "label": "Narrow therapeutic index / dose sensitivity"
+  },
+  {
+    "id": "TOXIC_METABOLITE",
+    "label": "Toxic metabolite accumulation"
+  }
+]

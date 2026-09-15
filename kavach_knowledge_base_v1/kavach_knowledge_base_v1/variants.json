@@ -1,0 +1,23 @@
+[
+  {
+    "id": "HLA-B*15:02",
+    "gene": "HLA-B",
+    "type": "allele",
+    "phenotype_model": "carrier_status",
+    "documented_effect": "increased_risk_of_carbamazepine_induced_SJS_TEN"
+  },
+  {
+    "id": "HLA-A*31:01",
+    "gene": "HLA-A",
+    "type": "allele",
+    "phenotype_model": "carrier_status",
+    "documented_effect": "increased_risk_of_carbamazepine_cutaneous_hypersensitivity"
+  },
+  {
+    "id": "HLA-B*57:01",
+    "gene": "HLA-B",
+    "type": "allele",
+    "phenotype_model": "carrier_status",
+    "documented_effect": "increased_risk_of_abacavir_hypersensitivity"
+  }
+]

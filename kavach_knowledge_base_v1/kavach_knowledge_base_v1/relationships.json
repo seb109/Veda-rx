@@ -1,0 +1,99 @@
+[
+  {
+    "id": "REL-CODEINE-CYP2D6-UM",
+    "drug": "codeine",
+    "gene": "CYP2D6",
+    "phenotype": "CYP2D6_ULTRARAPID",
+    "mechanism": "PRODRUG_ACTIVATION",
+    "effect": "increased_formation_of_morphine",
+    "clinical_outcome": "higher_risk_of_serious_opioid_toxicity",
+    "severity": "high",
+    "evidence_level": "strong",
+    "source_ids": [
+      "CPIC-CODEINE-2020"
+    ]
+  },
+  {
+    "id": "REL-CODEINE-CYP2D6-PM",
+    "drug": "codeine",
+    "gene": "CYP2D6",
+    "phenotype": "CYP2D6_POOR",
+    "mechanism": "PRODRUG_ACTIVATION",
+    "effect": "greatly_reduced_morphine_formation",
+    "clinical_outcome": "reduced_analgesic_effect",
+    "severity": "moderate",
+    "evidence_level": "strong",
+    "source_ids": [
+      "CPIC-CODEINE-2020"
+    ]
+  },
+  {
+    "id": "REL-CBZ-HLA-B-1502",
+    "drug": "carbamazepine",
+    "variant": "HLA-B*15:02",
+    "phenotype": "HLA_B_15_02_POSITIVE",
+    "mechanism": "IMMUNE_MEDIATED",
+    "effect": "increased_risk_of_SJS_TEN",
+    "clinical_outcome": "Stevens_Johnson_syndrome_or_toxic_epidermal_necrolysis",
+    "severity": "critical",
+    "evidence_level": "strong",
+    "source_ids": [
+      "CPIC-CBZ-2017"
+    ]
+  },
+  {
+    "id": "REL-CBZ-HLA-A-3101",
+    "drug": "carbamazepine",
+    "variant": "HLA-A*31:01",
+    "mechanism": "IMMUNE_MEDIATED",
+    "effect": "increased_risk_of_cutaneous_hypersensitivity",
+    "clinical_outcome": "DRESS_MPE_and_SJS_TEN",
+    "severity": "high",
+    "evidence_level": "strong",
+    "source_ids": [
+      "CPIC-CBZ-2017"
+    ]
+  },
+  {
+    "id": "REL-CLOP-CYP2C19-PM",
+    "drug": "clopidogrel",
+    "gene": "CYP2C19",
+    "phenotype": "CYP2C19_POOR",
+    "mechanism": "PRODRUG_ACTIVATION",
+    "effect": "reduced_active_metabolite_formation_and_platelet_inhibition",
+    "clinical_outcome": "increased_major_cardiovascular_and_cerebrovascular_event_risk",
+    "severity": "high",
+    "evidence_level": "strong",
+    "source_ids": [
+      "CPIC-CLOPIDOGREL-2022"
+    ]
+  },
+  {
+    "id": "REL-CLOP-CYP2C19-IM",
+    "drug": "clopidogrel",
+    "gene": "CYP2C19",
+    "phenotype": "CYP2C19_INTERMEDIATE",
+    "mechanism": "PRODRUG_ACTIVATION",
+    "effect": "reduced_active_metabolite_formation_and_platelet_inhibition",
+    "clinical_outcome": "increased_major_cardiovascular_and_cerebrovascular_event_risk",
+    "severity": "high",
+    "evidence_level": "strong",
+    "source_ids": [
+      "CPIC-CLOPIDOGREL-2022"
+    ]
+  },
+  {
+    "id": "REL-ABACAVIR-HLA-B-5701",
+    "drug": "abacavir",
+    "variant": "HLA-B*57:01",
+    "phenotype": "HLA_B_57_01_POSITIVE",
+    "mechanism": "IMMUNE_MEDIATED",
+    "effect": "increased_likelihood_of_hypersensitivity_reaction",
+    "clinical_outcome": "abacavir_hypersensitivity_reaction",
+    "severity": "critical",
+    "evidence_level": "strong",
+    "source_ids": [
+      "CPIC-ABACAVIR-2014"
+    ]
+  }
+]

@@ -1,0 +1,74 @@
+[
+  {
+    "variant": "HLA-B*15:02",
+    "population": "EAST_ASIAN",
+    "frequency_type": "reported_range",
+    "frequency_min": 0.01,
+    "frequency_max": 0.12,
+    "unit": "proportion",
+    "notes": "CPIC reports China generally 1-12%; Singapore/Hong Kong 10-12%; Korea 0.5%; Japan 0.1%. Some Han Chinese estimates are higher.",
+    "source_ids": [
+      "CPIC-CBZ-2013"
+    ]
+  },
+  {
+    "variant": "HLA-B*15:02",
+    "population": "SOUTH_ASIAN",
+    "frequency_type": "reported_range",
+    "frequency_min": 0.02,
+    "frequency_max": 0.06,
+    "unit": "proportion",
+    "notes": "CPIC reports different regions of India at approximately 2-6%.",
+    "source_ids": [
+      "CPIC-CBZ-2013"
+    ]
+  },
+  {
+    "variant": "HLA-B*15:02",
+    "population": "SUB_SAHARAN_AFRICAN",
+    "frequency_type": "reported_range",
+    "frequency_min": 0.0,
+    "frequency_max": 0.0002,
+    "unit": "proportion",
+    "notes": "CPIC describes the allele as quite rare/not observed in African populations in the cited data and reports 0-0.02% in Europeans.",
+    "source_ids": [
+      "CPIC-CBZ-2013"
+    ]
+  },
+  {
+    "variant": "HLA-B*15:02",
+    "population": "EUROPEAN",
+    "frequency_type": "reported_range",
+    "frequency_min": 0.0,
+    "frequency_max": 0.0002,
+    "unit": "proportion",
+    "notes": "CPIC reports 0-0.02% in Europeans.",
+    "source_ids": [
+      "CPIC-CBZ-2013"
+    ]
+  },
+  {
+    "variant": "HLA-B*57:01",
+    "population": "EUROPEAN",
+    "frequency_type": "reported_estimate",
+    "frequency_min": 0.06,
+    "frequency_max": 0.07,
+    "unit": "proportion",
+    "notes": "CPIC reports approximately 6-7% allele frequency in European populations.",
+    "source_ids": [
+      "CPIC-ABACAVIR-2014"
+    ]
+  },
+  {
+    "variant": "HLA-B*57:01",
+    "population": "SOUTHWEST_ASIAN",
+    "frequency_type": "reported_maximum",
+    "frequency_min": 0.0,
+    "frequency_max": 0.2,
+    "unit": "proportion",
+    "notes": "CPIC reports frequencies up to 20% in Southwest Asian populations.",
+    "source_ids": [
+      "CPIC-ABACAVIR-2014"
+    ]
+  }
+]

@@ -1,0 +1,39 @@
+[
+  {
+    "id": "VAL-001",
+    "drug": "codeine",
+    "expected_relationship": "REL-CODEINE-CYP2D6-UM",
+    "expected_signal": "CYP2D6 ultrarapid metabolizer concern",
+    "source_ids": [
+      "CPIC-CODEINE-2020"
+    ]
+  },
+  {
+    "id": "VAL-002",
+    "drug": "carbamazepine",
+    "expected_relationship": "REL-CBZ-HLA-B-1502",
+    "expected_signal": "HLA-B*15:02-associated SJS/TEN concern",
+    "source_ids": [
+      "CPIC-CBZ-2017",
+      "CPIC-CBZ-2013"
+    ]
+  },
+  {
+    "id": "VAL-003",
+    "drug": "clopidogrel",
+    "expected_relationship": "REL-CLOP-CYP2C19-PM",
+    "expected_signal": "CYP2C19 reduced-function concern",
+    "source_ids": [
+      "CPIC-CLOPIDOGREL-2022"
+    ]
+  },
+  {
+    "id": "VAL-004",
+    "drug": "abacavir",
+    "expected_relationship": "REL-ABACAVIR-HLA-B-5701",
+    "expected_signal": "HLA-B*57:01 hypersensitivity concern",
+    "source_ids": [
+      "CPIC-ABACAVIR-2014"
+    ]
+  }
+]

@@ -1,0 +1,46 @@
+[
+  {
+    "id": "RULE-001",
+    "name": "Direct evidence match",
+    "condition": "candidate drug matches a documented drug-gene relationship",
+    "effect": "use direct evidence relationship",
+    "evidence_tier": "DIRECT"
+  },
+  {
+    "id": "RULE-002",
+    "name": "Mechanistic precedent",
+    "condition": "candidate mechanism and selected gene/variant match an established pharmacogenomic relationship, but candidate drug is not documented",
+    "effect": "label result as MECHANISTIC_PRECEDENT; do not present as proven clinical risk",
+    "evidence_tier": "PRECEDENT"
+  },
+  {
+    "id": "RULE-003",
+    "name": "Population relevance",
+    "condition": "relevant variant/phenotype has a documented population frequency observation",
+    "effect": "include population in screening analysis"
+  },
+  {
+    "id": "RULE-004",
+    "name": "Representation gap",
+    "condition": "population is relevant to a signal but not included in planned trial regions",
+    "effect": "increase screening priority and display a representation-gap warning"
+  },
+  {
+    "id": "RULE-005",
+    "name": "Evidence ceiling",
+    "condition": "evidence is exploratory or weak",
+    "effect": "do not allow final priority to exceed Moderate without stronger evidence"
+  },
+  {
+    "id": "RULE-006",
+    "name": "Unknown knowledge",
+    "condition": "no supported relationship exists for the selected pathway/variant",
+    "effect": "return INSUFFICIENT_EVIDENCE instead of inventing a risk"
+  },
+  {
+    "id": "RULE-007",
+    "name": "Frequency is not probability",
+    "condition": "population frequency is used in scoring",
+    "effect": "never label frequency as probability of adverse drug reaction"
+  }
+]

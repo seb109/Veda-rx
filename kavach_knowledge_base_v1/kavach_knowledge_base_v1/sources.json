@@ -1,0 +1,76 @@
+[
+  {
+    "id": "CPIC-CODEINE-2020",
+    "organization": "CPIC",
+    "title": "Clinical Pharmacogenetics Implementation Consortium guideline for CYP2D6, OPRM1, and COMT genotype and select opioid therapy",
+    "url": "https://cpicpgx.org/content/guideline/publication/opioids/2020/CPIC_opioids_PREPRINT.pdf",
+    "supports": [
+      "codeine",
+      "CYP2D6",
+      "ultrarapid_metabolizer",
+      "poor_metabolizer"
+    ]
+  },
+  {
+    "id": "CPIC-CBZ-2017",
+    "organization": "CPIC",
+    "title": "CPIC guideline for HLA genotype and carbamazepine/oxcarbazepine therapy",
+    "url": "https://files.cpicpgx.org/data/guideline/publication/carbamazepine/2017/CPIC_HLA_CBZ_OXC.pdf",
+    "supports": [
+      "carbamazepine",
+      "HLA-B*15:02",
+      "HLA-A*31:01",
+      "SJS",
+      "TEN"
+    ]
+  },
+  {
+    "id": "CPIC-CBZ-2013",
+    "organization": "CPIC",
+    "title": "CPIC carbamazepine HLA guideline with population-frequency discussion",
+    "url": "https://cpicpgx.org/content/guideline/publication/carbamazepine/2013/23695185.pdf",
+    "supports": [
+      "HLA-B*15:02",
+      "population_frequency"
+    ]
+  },
+  {
+    "id": "CPIC-CLOPIDOGREL-2022",
+    "organization": "CPIC",
+    "title": "Clinical Pharmacogenetics Implementation Consortium Guideline for CYP2C19 Genotype and Clopidogrel Therapy: 2022 Update",
+    "url": "https://files.cpicpgx.org/data/guideline/publication/clopidogrel/2022/35034351.pdf",
+    "supports": [
+      "clopidogrel",
+      "CYP2C19",
+      "intermediate_metabolizer",
+      "poor_metabolizer"
+    ]
+  },
+  {
+    "id": "CPIC-ABACAVIR-2014",
+    "organization": "CPIC",
+    "title": "Clinical Pharmacogenetics Implementation Consortium Guidelines for HLA-B Genotype and Abacavir Dosing: 2014 update",
+    "url": "https://cpicpgx.org/wp-content/uploads/2016/01/CPIC_HLAB-Abacavir.pdf",
+    "supports": [
+      "abacavir",
+      "HLA-B*57:01",
+      "hypersensitivity",
+      "population_frequency"
+    ]
+  },
+  {
+    "id": "CPIC-API",
+    "organization": "CPIC",
+    "title": "CPIC API",
+    "url": "https://api.cpicpgx.org/",
+    "supports": [
+      "gene",
+      "drug",
+      "pair",
+      "allele_frequency",
+      "population_frequency",
+      "recommendation",
+      "publication"
+    ]
+  }
+]

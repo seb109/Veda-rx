@@ -1,0 +1,17 @@
+{
+  "name": "Kavach Pharmacogenomic Evidence Knowledge Base",
+  "version": "1.0-seed",
+  "purpose": "Curated evidence layer for a hackathon prototype. It supports documented-case validation and mechanism-based new-drug screening.",
+  "important_limitations": [
+    "This is not a clinical decision-support database.",
+    "Population frequency is not probability of adverse drug reaction.",
+    "Mechanistic precedent for a hypothetical drug is not proof of clinical harm.",
+    "The simulation output is a screening priority signal, not a validated probability."
+  ],
+  "primary_sources": [
+    "CPIC",
+    "FDA labeling where applicable",
+    "PharmGKB"
+  ],
+  "last_verified": "2026-09-15"
+}

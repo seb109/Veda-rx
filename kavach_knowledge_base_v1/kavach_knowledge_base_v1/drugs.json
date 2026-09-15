@@ -1,0 +1,42 @@
+[
+  {
+    "id": "codeine",
+    "name": "Codeine",
+    "mechanisms": [
+      "PRODRUG_ACTIVATION"
+    ],
+    "status": "documented_case"
+  },
+  {
+    "id": "carbamazepine",
+    "name": "Carbamazepine",
+    "mechanisms": [
+      "IMMUNE_MEDIATED"
+    ],
+    "status": "documented_case"
+  },
+  {
+    "id": "clopidogrel",
+    "name": "Clopidogrel",
+    "mechanisms": [
+      "PRODRUG_ACTIVATION"
+    ],
+    "status": "documented_case"
+  },
+  {
+    "id": "abacavir",
+    "name": "Abacavir",
+    "mechanisms": [
+      "IMMUNE_MEDIATED"
+    ],
+    "status": "documented_case"
+  },
+  {
+    "id": "warfarin",
+    "name": "Warfarin",
+    "mechanisms": [
+      "NARROW_THERAPEUTIC_INDEX"
+    ],
+    "status": "future_validation_case"
+  }
+]
