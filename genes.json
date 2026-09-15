@@ -1,0 +1,94 @@
+{
+    "CYP2D6": {
+        "label": "CYP2D6 (ultrarapid metabolizer)",
+        "clusters": [
+            "africa"
+        ],
+        "region": "North Africa & Ethiopia",
+        "risk_type": "Overdose risk — drug converted to active form too fast",
+        "mechanism": "Ultrarapid CYP2D6 metabolizers convert certain prodrugs into their active form far faster than normal, pushing active-drug levels to toxic concentrations even at a standard dose.",
+        "stat": "up to 29%",
+        "stat_label": "estimated ultrarapid metabolizers in this region",
+        "real_case": "Documented in codeine: FDA Boxed Warning (Feb 2013) after pediatric deaths from ultrarapid conversion to morphine.",
+        "relevant_drug_classes": "Prodrugs activated by CYP2D6 — e.g. certain opioids, some antidepressants and antiarrhythmics"
+    },
+    "HLA-B_1502": {
+        "label": "HLA-B*15:02 (allele carrier)",
+        "clusters": [
+            "hanchina"
+        ],
+        "region": "Han Chinese & Southeast Asia",
+        "risk_type": "Severe hypersensitivity — Stevens-Johnson syndrome / TEN",
+        "mechanism": "Carriers of HLA-B*15:02 face a dramatically elevated risk of Stevens-Johnson syndrome and toxic epidermal necrolysis when exposed to drugs that trigger this immune response.",
+        "stat": "~8.6%",
+        "stat_label": "allele frequency in Han Chinese cohorts (Chung et al., 2004)",
+        "real_case": "Documented in carbamazepine: Chung et al., Nature (2004); Taiwan now mandates pre-prescription screening.",
+        "relevant_drug_classes": "Aromatic anticonvulsants and structurally related compounds (carbamazepine, oxcarbazepine, phenytoin class)"
+    },
+    "HLA-B_5701": {
+        "label": "HLA-B*57:01 (allele carrier)",
+        "clusters": [
+            "swasia"
+        ],
+        "region": "Southwest Asia",
+        "risk_type": "Severe hypersensitivity reaction",
+        "mechanism": "Carriers of HLA-B*57:01 can develop severe, sometimes fatal hypersensitivity reactions to drugs that bind this allele's antigen-presentation site.",
+        "stat": "~11%",
+        "stat_label": "carrier frequency (CPIC pooled data) vs 1-6.7% in most other regions",
+        "real_case": "Documented in abacavir: PREDICT-1 trial, NEJM (2008) — screening cut reactions from 2.7% to 0%.",
+        "relevant_drug_classes": "Nucleoside analogue drugs metabolized/presented similarly to abacavir"
+    },
+    "CYP2C19": {
+        "label": "CYP2C19 (poor metabolizer)",
+        "clusters": [
+            "pacific",
+            "eastasia"
+        ],
+        "region": "Pacific Islands & East Asia",
+        "risk_type": "Treatment failure — prodrug activation failure",
+        "mechanism": "Poor CYP2C19 metabolizers cannot efficiently activate prodrugs that require this enzyme, meaning the drug may simply fail to work at standard doses.",
+        "stat": "up to 70%",
+        "stat_label": "poor metabolizers documented in Vanuatu (Hsu et al., 2008)",
+        "real_case": "Documented in clopidogrel: FDA Boxed Warning (2010) on reduced effectiveness in poor metabolizers.",
+        "relevant_drug_classes": "Prodrugs activated by CYP2C19 — e.g. antiplatelets, some PPIs and antidepressants"
+    },
+    "VKORC1": {
+        "label": "VKORC1 (dose sensitivity)",
+        "clusters": [
+            "eastasia"
+        ],
+        "region": "East Asia",
+        "risk_type": "Narrow therapeutic index — bleeding/dosing risk",
+        "mechanism": "A common VKORC1 variant lowers the required dose for drugs targeting this pathway; using a standard Western starting dose risks overdose in patients carrying it.",
+        "stat": "~88%",
+        "stat_label": "carry the dose-lowering variant in East Asian cohorts, vs ~39% in Europeans",
+        "real_case": "Documented in warfarin: FDA label (2010) added genotype-based dosing table.",
+        "relevant_drug_classes": "Vitamin K antagonists and other VKORC1-targeting anticoagulants"
+    },
+    "CYP2C9_AA": {
+        "label": "CYP2C9 cluster variant (African-ancestry-specific)",
+        "clusters": [
+            "americas"
+        ],
+        "region": "Americas (African-ancestry populations)",
+        "risk_type": "Dosing algorithm blind spot",
+        "mechanism": "A chromosome-10 CYP2C9-cluster variant common in African-ancestry populations was missed entirely by dosing algorithms built on European and Asian cohort data, causing systematic dose miscalibration.",
+        "stat": "N/A",
+        "stat_label": "variant absent from algorithms trained on non-African-ancestry cohorts",
+        "real_case": "Documented in warfarin: Perera et al., The Lancet (2013) — genome-wide study found the missed variant.",
+        "relevant_drug_classes": "Any drug whose dosing algorithm was trained predominantly on European/Asian pharmacogenomic cohorts"
+    },
+    "NAT2": {
+        "label": "NAT2 (slow acetylator)",
+        "clusters": [
+            "southasia"
+        ],
+        "region": "South Asia (India)",
+        "risk_type": "Toxic metabolite accumulation — hepatotoxicity",
+        "mechanism": "Slow NAT2 acetylators break down NAT2-dependent drugs more slowly, letting toxic intermediate metabolites accumulate and raising liver-injury risk.",
+        "stat": "~53%",
+        "stat_label": "slow-acetylator genotype frequency in an Indian TB patient cohort (2024 study)",
+        "real_case": "Documented in isoniazid: National Medical Journal of India (2013); Monaldi Archives (2024).",
+        "relevant_drug_classes": "NAT2-metabolized drugs — e.g. antituberculars, some sulfonamides and hydralazine-class drugs"
+    }
+}

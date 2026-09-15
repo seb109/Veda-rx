@@ -1,0 +1,88 @@
+{
+    "codeine": {
+        "name": "Codeine",
+        "gene": "CYP2D6",
+        "variant": "Ultrarapid metabolizer",
+        "region": "North Africa & Ethiopia",
+        "clusters": [
+            "africa"
+        ],
+        "mechanism": "Ultrarapid CYP2D6 metabolizers convert codeine into morphine far faster than normal, pushing morphine to toxic levels even at a standard dose and causing respiratory depression.",
+        "stat": "up to 29%",
+        "stat_label": "estimated ultrarapid metabolizers in this region",
+        "real_case": "FDA Boxed Warning (Feb 2013), issued after a review of pediatric deaths and serious adverse events following tonsillectomy/adenoidectomy.",
+        "static_explanation": "Ultrarapid CYP2D6 metabolizers convert codeine into morphine far faster than normal. A standard pediatric dose can push morphine to toxic levels, causing respiratory depression. This is why codeine and tramadol now carry a boxed warning against use after tonsillectomy in children."
+    },
+    "carbamazepine": {
+        "name": "Carbamazepine",
+        "gene": "HLA-B*15:02",
+        "variant": "Allele carrier",
+        "region": "Han Chinese & Southeast Asia",
+        "clusters": [
+            "hanchina"
+        ],
+        "mechanism": "Carriers of HLA-B*15:02 face a dramatically elevated risk of Stevens-Johnson syndrome and toxic epidermal necrolysis, severe skin reactions, when prescribed carbamazepine.",
+        "stat": "~8.6%",
+        "stat_label": "allele frequency in Han Chinese cohorts (Chung et al., 2004)",
+        "real_case": "Chung et al., Nature (2004) first linked the allele to SJS/TEN; a 2011 NEJM trial showed mandatory pre-prescription screening in Taiwan prevented cases.",
+        "static_explanation": "Carriers of HLA-B*15:02 face a dramatically elevated risk of Stevens-Johnson syndrome and toxic epidermal necrolysis — severe, life-threatening skin reactions — when prescribed carbamazepine. The allele is common in this population and nearly absent in European populations."
+    },
+    "abacavir": {
+        "name": "Abacavir",
+        "gene": "HLA-B*57:01",
+        "variant": "Allele carrier",
+        "region": "Southwest Asia",
+        "clusters": [
+            "swasia"
+        ],
+        "mechanism": "Carriers of HLA-B*57:01 can develop severe, sometimes fatal hypersensitivity reactions to this HIV medication.",
+        "stat": "~11%",
+        "stat_label": "carrier frequency (CPIC pooled data) vs 1-6.7% in most other regions",
+        "real_case": "PREDICT-1 trial, New England Journal of Medicine (2008) — prospective screening reduced confirmed hypersensitivity reactions from 2.7% to 0%.",
+        "static_explanation": "Carriers of HLA-B*57:01 can develop severe, sometimes fatal hypersensitivity reactions to this HIV medication. CPIC pooled data shows carrier rates in Southwest Asian populations well above most other regions studied, making pre-treatment screening especially consequential here."
+    },
+    "clopidogrel": {
+        "name": "Clopidogrel",
+        "gene": "CYP2C19",
+        "variant": "Poor metabolizer",
+        "region": "Pacific Islands & East Asia",
+        "clusters": [
+            "pacific",
+            "eastasia"
+        ],
+        "mechanism": "Poor CYP2C19 metabolizers can't efficiently activate this prodrug, so it fails to prevent clotting in stented patients, raising the risk of stent thrombosis and heart attack.",
+        "stat": "up to 70%",
+        "stat_label": "poor metabolizers documented in Vanuatu (Hsu et al., 2008)",
+        "real_case": "FDA Boxed Warning (2010) on reduced clopidogrel effectiveness in poor metabolizers.",
+        "static_explanation": "Poor CYP2C19 metabolizers can't efficiently activate this prodrug. In patients who've had a cardiac stent placed, that means the drug fails to prevent clotting — raising the risk of stent thrombosis and heart attack. Some Melanesian Pacific Island communities show among the highest poor-metabolizer rates ever documented, far above the ~3% typically seen in Caucasians."
+    },
+    "warfarin": {
+        "name": "Warfarin",
+        "gene": "CYP2C9 + VKORC1",
+        "variant": "Dosing variant",
+        "region": "East Asia & African-ancestry populations",
+        "clusters": [
+            "eastasia",
+            "americas"
+        ],
+        "mechanism": "Two separate region-specific variants affect warfarin dosing: a VKORC1 variant lowering required dose in East Asians, and a distinct chromosome-10 variant in African-ancestry patients that standard dosing algorithms missed.",
+        "stat": "~88%",
+        "stat_label": "carry the dose-lowering VKORC1 variant in East Asian cohorts, vs ~39% in Europeans",
+        "real_case": "FDA warfarin label (2010) adds CYP2C9/VKORC1 dosing table; Perera et al., The Lancet (2013) identified the missing African-ancestry-specific variant.",
+        "static_explanation": "Two separate, region-specific variants affect warfarin dosing. A VKORC1 variant that lowers the required dose is far more common in East Asian populations than in Europeans. Separately, standard dosing algorithms — built mostly on European and Asian data — underpredicted doses for African-ancestry patients until a 2013 genome-wide study found a distinct chromosome-10 variant common in this population. Both cases show the same failure: a dosing table built on one population's genome missing another's."
+    },
+    "isoniazid": {
+        "name": "Isoniazid",
+        "gene": "NAT2",
+        "variant": "Slow acetylator",
+        "region": "South Asia (India)",
+        "clusters": [
+            "southasia"
+        ],
+        "mechanism": "Slow NAT2 acetylators break down this frontline tuberculosis drug more slowly, letting toxic intermediate metabolites build up in the liver.",
+        "stat": "~53%",
+        "stat_label": "slow-acetylator genotype frequency in an Indian TB patient cohort (2024 study)",
+        "real_case": "Indian pharmacogenetic studies (National Medical Journal of India, 2013; Monaldi Archives for Chest Disease, 2024) link slow-acetylator NAT2 genotype to anti-TB drug-induced liver injury.",
+        "static_explanation": "Slow NAT2 acetylators break down this frontline tuberculosis drug more slowly, letting toxic intermediate metabolites build up in the liver. Indian studies find slow-acetylator status is both common and significantly associated with drug-induced liver injury in TB patients — a real concern given India's TB treatment burden."
+    }
+}
