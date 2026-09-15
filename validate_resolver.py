@@ -8,6 +8,7 @@ Run:
 from __future__ import annotations
 
 import json
+import re
 import sys
 
 from kb_loader import load_kb
@@ -139,6 +140,93 @@ def main() -> int:
             == {"variant", "population", "frequency_type", "frequency_min", "frequency_max", "unit", "notes", "sources"},
             f"got keys {sorted(sig.keys())}",
         )
+
+    # --- 6. CYP2D6/CYP2C19 gene-level allele-frequency plumbing (new) ---
+    codeine_result = resolve_explain(kb, "codeine")
+    check(
+        "Codeine/CYP2D6 now produces population signals",
+        len(codeine_result.population_signals) > 0,
+        f"got {len(codeine_result.population_signals)} signals",
+    )
+    check(
+        "Codeine's population signals are all explicitly tagged allele_frequency",
+        all(s["frequency_type"] == "allele_frequency" for s in codeine_result.population_signals),
+        f"got frequency_types {[s['frequency_type'] for s in codeine_result.population_signals]}",
+    )
+    check(
+        "Codeine's population signals are all CYP2D6 alleles (no cross-gene leakage)",
+        all((s["variant"] or "").startswith("CYP2D6") for s in codeine_result.population_signals),
+        f"got variants {[s['variant'] for s in codeine_result.population_signals]}",
+    )
+
+    clopidogrel_result = resolve_explain(kb, "clopidogrel")
+    check(
+        "Clopidogrel/CYP2C19 now produces population signals",
+        len(clopidogrel_result.population_signals) > 0,
+        f"got {len(clopidogrel_result.population_signals)} signals",
+    )
+    check(
+        "Clopidogrel's population signals are all explicitly tagged allele_frequency",
+        all(s["frequency_type"] == "allele_frequency" for s in clopidogrel_result.population_signals),
+        f"got frequency_types {[s['frequency_type'] for s in clopidogrel_result.population_signals]}",
+    )
+    check(
+        "Clopidogrel's population signals are all CYP2C19 alleles (no cross-gene leakage)",
+        all((s["variant"] or "").startswith("CYP2C19") for s in clopidogrel_result.population_signals),
+        f"got variants {[s['variant'] for s in clopidogrel_result.population_signals]}",
+    )
+
+    for label, result in (("codeine", codeine_result), ("clopidogrel", clopidogrel_result)):
+        dumped = json.dumps(result.to_dict())
+        check(
+            f"{label} resolver output has no field/key literally named 'probability'",
+            not any("probability" in k.lower() for sig in result.population_signals for k in sig.keys()),
+            "found a 'probability'-named key in a population signal",
+        )
+        # The word "probability" itself is allowed to appear ONLY inside an
+        # explicit disclaimer ("not a probability ..."); it must never be
+        # asserted as a fact about the allele frequency.
+        mentions = re.findall(r".{0,12}probability", dumped, re.IGNORECASE)
+        check(
+            f"{label}: every mention of 'probability' in the output is a disclaimer, never an assertion",
+            all("not a" in m.lower() for m in mentions),
+            f"non-disclaiming 'probability' mention(s): {mentions}",
+        )
+        check(
+            f"{label}'s allele-frequency signals are never labeled as carrier/phenotype/adverse-event frequency",
+            not any(
+                bad in dumped.lower()
+                for bad in ("carrier_frequency", "phenotype_frequency", "adverse_event_probability")
+            ),
+            f"found a disallowed frequency label in {label}'s resolver output",
+        )
+
+    # --- HLA-B*15:02 / HLA-B*57:01 behavior is byte-for-byte unchanged by the
+    # new gene-level lookup path (these relationships carry a `variant`, not
+    # a `gene`, so they must take the pre-existing variant-only branch) ---
+    carbamazepine_result = resolve_explain(kb, "carbamazepine")
+    check(
+        "HLA-B*15:02 (carbamazepine) still returns exactly 4 population signals",
+        len(carbamazepine_result.population_signals) == 4,
+        f"got {len(carbamazepine_result.population_signals)}",
+    )
+    check(
+        "HLA-B*15:02 signals are still frequency_type 'reported_range' (untouched by allele_frequency work)",
+        all(s["frequency_type"] == "reported_range" for s in carbamazepine_result.population_signals),
+        f"got {[s['frequency_type'] for s in carbamazepine_result.population_signals]}",
+    )
+
+    abacavir_result = resolve_explain(kb, "abacavir")
+    check(
+        "HLA-B*57:01 (abacavir) still returns exactly 2 population signals",
+        len(abacavir_result.population_signals) == 2,
+        f"got {len(abacavir_result.population_signals)}",
+    )
+    check(
+        "HLA-B*57:01 signals are still their original frequency_types (untouched by allele_frequency work)",
+        {s["frequency_type"] for s in abacavir_result.population_signals} == {"reported_estimate", "reported_maximum"},
+        f"got {[s['frequency_type'] for s in abacavir_result.population_signals]}",
+    )
 
     print()
     if failures:

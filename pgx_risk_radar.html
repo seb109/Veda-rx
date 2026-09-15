@@ -399,6 +399,246 @@
       h1 { font-size: 24px; }
       .subtitle { font-size: 13.5px; }
     }
+
+    /* ==================================================================
+       Simulate-a-new-drug v2 panel — additive only, does not touch any
+       rule above (documented-case pills / map / info card are untouched).
+       ================================================================== */
+
+    .sim-section-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 14px 2px 6px;
+    }
+
+    .sim-section-label:first-child { margin-top: 2px; }
+
+    .sim-field-hint {
+      font-size: 12px;
+      color: var(--muted);
+      margin: 6px 2px 0;
+      line-height: 1.5;
+    }
+
+    .preset-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 4px; }
+
+    .preset-btn {
+      font: 500 12.5px 'IBM Plex Sans', sans-serif;
+      color: var(--cyan);
+      background: rgba(63, 208, 201, 0.08);
+      border: 1px solid var(--cyan-dim);
+      border-radius: 999px;
+      padding: 6px 13px;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s;
+    }
+
+    .preset-btn:hover { background: rgba(63, 208, 201, 0.16); border-color: var(--cyan); }
+
+    .chip-group { display: flex; flex-wrap: wrap; gap: 8px; }
+
+    .chip {
+      font: 500 12.5px 'IBM Plex Sans', sans-serif;
+      color: var(--muted);
+      background: var(--panel);
+      border: 1px solid var(--panel-border);
+      border-radius: 999px;
+      padding: 7px 13px;
+      cursor: pointer;
+      transition: border-color 0.15s, color 0.15s, background 0.15s;
+      user-select: none;
+    }
+
+    .chip:hover { border-color: var(--muted); color: var(--text); }
+
+    .chip.selected {
+      background: rgba(63, 208, 201, 0.14);
+      border-color: var(--cyan);
+      color: var(--text);
+    }
+
+    .sim-submit-row { display: flex; align-items: center; gap: 12px; margin-top: 16px; flex-wrap: wrap; }
+
+    .sim-run:disabled { opacity: 0.5; cursor: default; }
+
+    .sim-status-inline { font-size: 12.5px; color: var(--muted); font-family: 'IBM Plex Mono', monospace; }
+
+    /* ---- results panel ---- */
+    .sim-results {
+      display: none;
+      margin-top: 20px;
+      background: var(--panel);
+      border: 1px solid var(--panel-border);
+      border-radius: var(--radius-lg);
+      padding: 20px 22px 22px;
+    }
+
+    .sim-results.open { display: block; }
+
+    .sim-results-empty, .sim-results-error {
+      font-size: 13.5px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .sim-results-error { color: var(--red); }
+
+    .sim-insufficient {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .sim-insufficient .insufficient-tag {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      color: var(--muted);
+      background: rgba(124, 138, 173, 0.12);
+      border: 1px solid var(--panel-border);
+      border-radius: 6px;
+      padding: 4px 10px;
+      width: fit-content;
+    }
+
+    .sim-insufficient p { margin: 0; font-size: 14px; line-height: 1.6; color: #D6DCEB; }
+
+    .sim-result-head {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+
+    .priority-badge, .evidence-badge {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11.5px;
+      letter-spacing: 0.03em;
+      border-radius: 7px;
+      padding: 5px 11px;
+      border: 1px solid transparent;
+    }
+
+    .priority-badge.priority-critical { color: #fff; background: rgba(255, 59, 92, 0.28); border-color: var(--red); }
+    .priority-badge.priority-high { color: #fff; background: rgba(255, 59, 92, 0.16); border-color: rgba(255, 59, 92, 0.6); }
+    .priority-badge.priority-moderate { color: #10131b; background: var(--amber); border-color: var(--amber); }
+    .priority-badge.priority-low { color: var(--cyan); background: rgba(63, 208, 201, 0.12); border-color: var(--cyan-dim); }
+
+    .evidence-badge.evidence-direct { color: var(--cyan); background: rgba(63, 208, 201, 0.12); border-color: var(--cyan-dim); }
+    .evidence-badge.evidence-precedent-strong { color: var(--amber); background: rgba(255, 176, 32, 0.12); border-color: rgba(255, 176, 32, 0.4); }
+    .evidence-badge.evidence-precedent-moderate { color: var(--amber); background: rgba(255, 176, 32, 0.08); border-color: rgba(255, 176, 32, 0.25); }
+    .evidence-badge.evidence-insufficient { color: var(--muted); background: rgba(124, 138, 173, 0.1); border-color: var(--panel-border); }
+
+    .sim-precedent-note {
+      font-size: 12.5px;
+      color: var(--amber);
+      background: rgba(255, 176, 32, 0.06);
+      border: 1px dashed rgba(255, 176, 32, 0.35);
+      border-radius: var(--radius-sm);
+      padding: 9px 12px;
+      margin-bottom: 14px;
+      line-height: 1.55;
+    }
+
+    .sim-match-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .sim-match-row b { color: var(--text); font-weight: 500; }
+
+    .sim-block-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--text);
+      margin: 18px 0 8px;
+    }
+
+    .sim-block-title:first-of-type { margin-top: 0; }
+
+    .signal-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 14px;
+      align-items: baseline;
+      font-size: 13px;
+      padding: 8px 0;
+      border-bottom: 1px dashed var(--panel-border);
+    }
+
+    .signal-row:last-child { border-bottom: none; }
+
+    .signal-pop { font-weight: 500; color: var(--text); min-width: 150px; }
+
+    .signal-freq { font-family: 'IBM Plex Mono', monospace; color: var(--cyan); font-size: 12.5px; }
+
+    .signal-note { color: var(--muted); font-size: 12px; flex-basis: 100%; line-height: 1.5; }
+
+    .no-signal-note { font-size: 12.5px; color: var(--muted); line-height: 1.55; }
+
+    .gap-banner {
+      font-size: 12.5px;
+      color: var(--text);
+      background: rgba(255, 176, 32, 0.08);
+      border: 1px solid rgba(255, 176, 32, 0.3);
+      border-radius: var(--radius-sm);
+      padding: 10px 12px;
+      line-height: 1.55;
+    }
+
+    .gap-banner .gap-caption { display: block; color: var(--muted); font-size: 11.5px; margin-top: 5px; }
+
+    .sources-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+
+    .sources-list li { font-size: 12.5px; line-height: 1.5; }
+
+    .sources-list a { color: var(--cyan); text-decoration: none; }
+
+    .sources-list a:hover { text-decoration: underline; }
+
+    .sources-list .source-org { color: var(--muted); font-family: 'IBM Plex Mono', monospace; font-size: 11px; margin-right: 6px; }
+
+    .explanation-divider {
+      border: none;
+      border-top: 1px solid var(--panel-border);
+      margin: 20px 0 14px;
+    }
+
+    .explanation-block-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10.5px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .explanation-block-label.ai { color: var(--amber); }
+
+    .sim-explanation-text {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #D6DCEB;
+      margin: 0;
+    }
+
+    @media (max-width:680px) {
+      .signal-pop { min-width: 0; flex-basis: 100%; }
+      .sim-match-row { gap: 10px 18px; }
+    }
+
+    @media (max-width:480px) {
+      .preset-row, .chip-group { gap: 6px; }
+      .sim-results { padding: 16px 15px 18px; }
+    }
   </style>
 </head>
 
@@ -420,15 +660,37 @@
     <div class="controls" id="drugControls"></div>
 
     <div class="simulate-panel" id="simulatePanel">
+      <p class="sim-hint" style="margin-top:0;">Screen a hypothetical drug candidate against documented pharmacogenomic
+        evidence. The backend's deterministic engine decides the result — this form only collects your inputs.</p>
+
+      <div class="sim-section-label">Use a known case (reproduces a documented relationship)</div>
+      <div class="preset-row" id="simPresets"></div>
+
+      <div class="sim-section-label">Candidate drug name</div>
       <div class="sim-row">
-        <input class="field" type="text" id="simDrugName" placeholder="New drug candidate name (e.g. Compound X-104)" maxlength="60">
-        <select class="field" id="simGene"></select>
-        <button class="sim-run" id="simRun">Run pre-trial screen</button>
+        <input class="field" type="text" id="simDrugName" placeholder="KVC-101" maxlength="60">
       </div>
-      <p class="sim-hint">Not a real drug — enter any name and pick the metabolic pathway it shares with a known
-        compound. The tool predicts which populations would show up as at-risk, before a single trial participant is
-        enrolled.</p>
+
+      <div class="sim-section-label">Mechanism type</div>
+      <select class="field" id="simMechanism" style="width:100%;"></select>
+      <p class="sim-field-hint">For your reference only — helps you pick a pathway below. The engine matches on the
+        gene/variant you select, not on this label.</p>
+
+      <div class="sim-section-label">Gene / pathway</div>
+      <select class="field" id="simPathway" style="width:100%;"></select>
+
+      <div class="sim-section-label">Planned trial populations / regions (optional)</div>
+      <div class="chip-group" id="simRegionChips"></div>
+      <p class="sim-field-hint">Used only to flag a representation gap against documented population signals — never
+        to compute risk.</p>
+
+      <div class="sim-submit-row">
+        <button class="sim-run" id="simRun">Run pre-trial screen</button>
+        <span class="sim-status-inline" id="simStatusInline"></span>
+      </div>
     </div>
+
+    <div class="sim-results" id="simResults"></div>
 
     <div class="stage">
       <div class="legend">
@@ -507,17 +769,96 @@
       }
     };
 
-    // Mirrors genes.json on the backend — lets the simulator highlight clusters
-    // immediately without waiting on a network round trip.
-    const GENES = {
-      CYP2D6: { label: 'CYP2D6 (ultrarapid metabolizer)', clusters: ['africa'] },
-      HLA_1502: { label: 'HLA-B*15:02 (allele carrier)', clusters: ['hanchina'] },
-      HLA_5701: { label: 'HLA-B*57:01 (allele carrier)', clusters: ['swasia'] },
-      CYP2C19: { label: 'CYP2C19 (poor metabolizer)', clusters: ['pacific', 'eastasia'] },
-      VKORC1: { label: 'VKORC1 (dose sensitivity)', clusters: ['eastasia'] },
-      CYP2C9_AA: { label: 'CYP2C9 cluster variant (African-ancestry)', clusters: ['americas'] },
-      NAT2: { label: 'NAT2 (slow acetylator)', clusters: ['southasia'] }
+    // ------------------------------------------------------------------
+    // v2 simulator data — mirrors kavach_knowledge_base_v1's own ids/labels
+    // verbatim (genes.json, variants.json, mechanisms.json, populations.json).
+    // Presentation-only static lists, same "mirror backend data in JS so the
+    // UI doesn't wait on a round trip" pattern as DRUGS/CLUSTERS above.
+    // No values here are sent to the resolver except SIM_PATHWAYS ids and
+    // SIM_POPULATIONS ids, which are the exact strings the KB itself uses.
+    // ------------------------------------------------------------------
+
+    const SIM_MECHANISMS = [
+      { id: 'PRODRUG_ACTIVATION', label: 'Prodrug requiring metabolic activation' },
+      { id: 'ACTIVE_DRUG_METABOLISM', label: 'Active drug metabolism / clearance' },
+      { id: 'IMMUNE_MEDIATED', label: 'Immune-mediated adverse reaction' },
+      { id: 'NARROW_THERAPEUTIC_INDEX', label: 'Narrow therapeutic index / dose sensitivity' },
+      { id: 'TOXIC_METABOLITE', label: 'Toxic metabolite accumulation' }
+    ];
+
+    // group/id/label taken directly from genes.json + variants.json. HLA
+    // relationships in the KB are stored at the variant level (e.g.
+    // "HLA-B*15:02"), not the bare gene, so those are what's offered here —
+    // selecting bare "HLA-B" would never match anything in relationships.json.
+    const SIM_PATHWAYS = [
+      { group: 'CYP2D6', id: 'CYP2D6', label: 'CYP2D6' },
+      { group: 'CYP2C19', id: 'CYP2C19', label: 'CYP2C19' },
+      { group: 'HLA-B', id: 'HLA-B*15:02', label: 'HLA-B*15:02' },
+      { group: 'HLA-B', id: 'HLA-B*57:01', label: 'HLA-B*57:01' },
+      { group: 'HLA-A', id: 'HLA-A*31:01', label: 'HLA-A*31:01' }
+    ];
+
+    const SIM_POPULATIONS = [
+      { id: 'EUROPEAN', label: 'European' },
+      { id: 'EAST_ASIAN', label: 'East Asian' },
+      { id: 'SOUTH_ASIAN', label: 'South Asian' },
+      { id: 'SUB_SAHARAN_AFRICAN', label: 'Sub-Saharan African' },
+      { id: 'SOUTHWEST_ASIAN', label: 'Southwest Asian' },
+      { id: 'PACIFIC_ISLANDER', label: 'Pacific Islander' },
+      { id: 'NORTH_AMERICAN', label: 'North American' },
+      { id: 'LATIN_AMERICAN', label: 'Latin American' }
+    ];
+
+    // Prefills the form to reproduce a documented relationship end-to-end
+    // through the SAME /v2/predict call a hypothetical drug uses — no
+    // expected result is hardcoded, the resolver decides it live.
+    const SIM_PRESETS = [
+      { label: 'Codeine', drugName: 'Codeine', mechanism: 'PRODRUG_ACTIVATION', pathway: 'CYP2D6' },
+      { label: 'Carbamazepine', drugName: 'Carbamazepine', mechanism: 'IMMUNE_MEDIATED', pathway: 'HLA-B*15:02' },
+      { label: 'Clopidogrel', drugName: 'Clopidogrel', mechanism: 'PRODRUG_ACTIVATION', pathway: 'CYP2C19' },
+      { label: 'Abacavir', drugName: 'Abacavir', mechanism: 'IMMUNE_MEDIATED', pathway: 'HLA-B*57:01' }
+    ];
+
+    // Presentation-only geographic hint for the existing map, so a v2 result
+    // can reuse the same Radar component as the documented-case pills. This
+    // is NOT medical/genomic evidence — just a best-effort label match
+    // between the KB's population vocabulary and the map's existing country
+    // clusters. Left empty where no existing cluster corresponds.
+    const POPULATION_TO_CLUSTERS = {
+      EUROPEAN: ['europe'],
+      EAST_ASIAN: ['eastasia', 'hanchina'],
+      SOUTH_ASIAN: ['southasia'],
+      SUB_SAHARAN_AFRICAN: [],
+      SOUTHWEST_ASIAN: ['swasia'],
+      PACIFIC_ISLANDER: ['pacific'],
+      NORTH_AMERICAN: [],
+      LATIN_AMERICAN: []
     };
+
+    // ------------------------------------------------------------------
+    // Single shared map-highlighting boundary. EVERY caller — documented
+    // pills (legacy cluster ids) and the v2 simulator (backend population
+    // signals) — funnels through this one function before touching Radar.
+    // It does zero medical reasoning: it only forwards cluster ids the
+    // caller already resolved, or (via the adapter below) relabels backend
+    // population ids into the map's existing cluster vocabulary. If there's
+    // nothing to highlight, it clears the map — it never fabricates one.
+    // ------------------------------------------------------------------
+    function highlightClustersOnMap(clusterKeys) {
+      Radar.highlight(clusterKeys || []);
+    }
+
+    // Presentation-only adapter: backend population_signals -> map cluster
+    // ids, via POPULATION_TO_CLUSTERS above. Returns [] (not a guess) for
+    // any population with no existing map cluster, and [] entirely when
+    // the backend returned no signals — e.g. today's CYP2D6/CYP2C19 gap.
+    function populationSignalsToClusters(populationSignals) {
+      const clusters = new Set();
+      (populationSignals || []).forEach(sig => {
+        (POPULATION_TO_CLUSTERS[sig.population] || []).forEach(c => clusters.add(c));
+      });
+      return Array.from(clusters);
+    }
 
     const DRUGS = [
       {
@@ -784,10 +1125,10 @@
     // Backend calls — fail silently, static content always wins first
     // ============================================================
 
-    async function postJSON(path, body) {
+    async function postJSON(path, body, timeoutMs = API_TIMEOUT_MS) {
       try {
         const controller = new AbortController();
-        const timer = setTimeout(() => controller.abort(), API_TIMEOUT_MS);
+        const timer = setTimeout(() => controller.abort(), timeoutMs);
         const res = await fetch(API_BASE + path, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -823,7 +1164,7 @@
 
       function reset() {
         selectedDrugId = null;
-        Radar.highlight([]);
+        highlightClustersOnMap([]);
         Card.close();
         Object.values(pillsById).forEach(p => p.classList.remove('active'));
       }
@@ -834,7 +1175,10 @@
         selectedDrugId = drug.id;
         Object.values(pillsById).forEach(p => p.classList.remove('active'));
         pillsById[drug.id].classList.add('active');
-        Radar.highlight(drug.clusters);
+        // Documented Cases still runs on the legacy per-drug cluster list —
+        // preserved as-is this task; it already IS a cluster id, so it goes
+        // straight to the shared highlighter with no adapter needed.
+        highlightClustersOnMap(drug.clusters);
 
         Card.show({
           title: drug.name,
@@ -867,6 +1211,7 @@
       const modeToggle = document.getElementById('modeToggle');
       const controlsEl = document.getElementById('drugControls');
       const simulatePanel = document.getElementById('simulatePanel');
+      const simResults = document.getElementById('simResults');
 
       modeToggle.querySelectorAll('.mode-btn').forEach(btn => {
         btn.addEventListener('click', () => {
@@ -875,59 +1220,282 @@
           const mode = btn.dataset.mode;
           controlsEl.style.display = mode === 'known' ? 'flex' : 'none';
           simulatePanel.classList.toggle('open', mode === 'simulate');
+          if (mode !== 'simulate') simResults.classList.remove('open');
           App.reset();
+          document.getElementById('hintText').textContent = 'select a medication above';
         });
       });
     })();
 
     // ============================================================
-    // Simulator — pre-trial screening for a hypothetical candidate
+    // Simulator v2 — pre-trial screening via the deterministic resolver.
+    // This form never computes a result itself: every field it collects is
+    // sent to POST /v2/predict, and every value shown below (status,
+    // priority, evidence, population signals, sources) is rendered
+    // straight from that response. The only client-side logic here is
+    // DOM building and the presentation-only evidence-status label.
     // ============================================================
 
+    function el(tag, attrs, children) {
+      const node = document.createElement(tag);
+      Object.entries(attrs || {}).forEach(([k, v]) => {
+        if (k === 'text') node.textContent = v;
+        else if (k === 'class') node.className = v;
+        else node.setAttribute(k, v);
+      });
+      (children || []).forEach(c => node.appendChild(c));
+      return node;
+    }
+
     (() => {
-      const geneSelect = document.getElementById('simGene');
-      Object.entries(GENES).forEach(([key, g]) => {
-        const opt = document.createElement('option');
-        opt.value = key;
-        opt.textContent = g.label;
-        geneSelect.appendChild(opt);
+      const mechanismSelect = document.getElementById('simMechanism');
+      const pathwaySelect = document.getElementById('simPathway');
+      const drugNameInput = document.getElementById('simDrugName');
+      const regionChipsEl = document.getElementById('simRegionChips');
+      const presetsEl = document.getElementById('simPresets');
+      const runBtn = document.getElementById('simRun');
+      const statusInline = document.getElementById('simStatusInline');
+      const resultsEl = document.getElementById('simResults');
+      const hintText = document.getElementById('hintText');
+
+      const selectedRegions = new Set();
+
+      SIM_MECHANISMS.forEach(m => {
+        mechanismSelect.appendChild(el('option', { value: m.id, text: m.label }));
       });
 
-      function staticPrediction(drugName, geneData) {
-        return `${drugName} shares its metabolic pathway (${geneData.label}) with a drug already documented to ` +
-          `carry elevated risk in this population. Based on that precedent, this population should be prioritized ` +
-          `for safety screening before trials begin.`;
+      SIM_PATHWAYS.forEach(p => {
+        pathwaySelect.appendChild(el('option', { value: p.id, text: p.label }));
+      });
+
+      SIM_POPULATIONS.forEach(pop => {
+        const chip = el('span', { class: 'chip', text: pop.label });
+        chip.dataset.pop = pop.id;
+        chip.addEventListener('click', () => {
+          if (selectedRegions.has(pop.id)) { selectedRegions.delete(pop.id); chip.classList.remove('selected'); }
+          else { selectedRegions.add(pop.id); chip.classList.add('selected'); }
+        });
+        regionChipsEl.appendChild(chip);
+      });
+
+      SIM_PRESETS.forEach(preset => {
+        const btn = el('span', { class: 'preset-btn', text: preset.label });
+        btn.addEventListener('click', () => {
+          drugNameInput.value = preset.drugName;
+          mechanismSelect.value = preset.mechanism;
+          pathwaySelect.value = preset.pathway;
+        });
+        presetsEl.appendChild(btn);
+      });
+
+      function priorityBadge(priority) {
+        return el('span', {
+          class: `priority-badge priority-${(priority || 'low').toLowerCase()}`,
+          text: `Screening Priority: ${priority}`
+        });
       }
 
-      document.getElementById('simRun').addEventListener('click', async () => {
-        const drugName = document.getElementById('simDrugName').value.trim() || 'Unnamed candidate';
-        const geneKey = geneSelect.value;
-        const geneData = GENES[geneKey];
-        if (!geneData) return;
-
-        Radar.highlight(geneData.clusters);
-        const regionNames = geneData.clusters.map(c => CLUSTERS[c].name).join(' & ');
-
-        Card.show({
-          title: drugName,
-          gene: geneKey.replace('_', ' '),
-          region: `Predicted at-risk region: ${regionNames}`,
-          stat: '—',
-          statLabel: 'see explanation for the documented precedent',
-          caseRef: 'This is a predicted signal for pre-trial screening, based on a real documented case on the same metabolic pathway — not a confirmed outcome for this specific candidate.',
-          explanation: 'Running pre-trial screen…',
-          predicted: true
-        });
-
-        const result = await postJSON('/predict', { drug_name: drugName, gene: geneKey });
-        if (result && result.explanation) {
-          Card.setExplanation(result.explanation);
-          if (result.region) {
-            document.getElementById('cardRegion').textContent = `Predicted at-risk region: ${result.region}`;
-          }
-        } else {
-          Card.setExplanation(staticPrediction(drugName, geneData));
+      function evidenceStatusLabel(result) {
+        if (result.status === 'DIRECT') return 'Direct Evidence';
+        if (result.status === 'PRECEDENT') {
+          return (result.evidence_level || '').toLowerCase() === 'strong'
+            ? 'Strong Mechanistic Precedent'
+            : 'Moderate Mechanistic Precedent';
         }
+        return 'Insufficient Evidence';
+      }
+
+      function evidenceBadgeClass(result) {
+        if (result.status === 'DIRECT') return 'evidence-direct';
+        if (result.status === 'PRECEDENT') {
+          return (result.evidence_level || '').toLowerCase() === 'strong'
+            ? 'evidence-precedent-strong'
+            : 'evidence-precedent-moderate';
+        }
+        return 'evidence-insufficient';
+      }
+
+      function formatFrequency(sig) {
+        if (sig.frequency_min == null && sig.frequency_max == null) return null;
+        const unit = sig.unit === 'proportion' ? '%' : (sig.unit || '');
+        const toPct = v => (unit === '%' ? (v * 100).toFixed(1).replace(/\.0$/, '') : v);
+        if (sig.frequency_min === sig.frequency_max) return `${toPct(sig.frequency_min)}${unit}`;
+        return `${toPct(sig.frequency_min)}–${toPct(sig.frequency_max)}${unit}`;
+      }
+
+      function renderSources(sources) {
+        const list = el('ul', { class: 'sources-list' });
+        (sources || []).forEach(s => {
+          const li = el('li');
+          if (s.organization) li.appendChild(el('span', { class: 'source-org', text: s.organization }));
+          if (s.url) {
+            li.appendChild(el('a', { href: s.url, target: '_blank', rel: 'noopener noreferrer', text: s.title || s.url }));
+          } else {
+            li.appendChild(document.createTextNode(s.title || s.id));
+          }
+          list.appendChild(li);
+        });
+        return list;
+      }
+
+      function renderInsufficient(result) {
+        const wrap = el('div', { class: 'sim-insufficient' });
+        wrap.appendChild(el('span', { class: 'insufficient-tag', text: 'INSUFFICIENT_EVIDENCE' }));
+        wrap.appendChild(el('p', {
+          text: 'No validated pharmacogenomic relationship was identified in the current knowledge base. ' +
+            'Kavach does not infer a population risk signal without supporting evidence.'
+        }));
+        if (result.notes && result.notes.length) {
+          wrap.appendChild(el('p', { text: result.notes.join(' '), style: 'color:var(--muted);font-size:12.5px;' }));
+        }
+        return wrap;
+      }
+
+      // Single point where the simulator decides what the map shows. Never
+      // called with anything except real backend population_signals run
+      // through the shared adapter — an empty result here means "the KB has
+      // no frequency data for this pathway," not "let's guess."
+      function applyMapHighlight(clusterKeys, noDataReason) {
+        highlightClustersOnMap(clusterKeys);
+        if (clusterKeys && clusterKeys.length) {
+          hintText.style.display = 'none';
+        } else {
+          hintText.style.display = 'block';
+          hintText.textContent = noDataReason || 'select a medication above';
+        }
+      }
+
+      function renderResult(result) {
+        resultsEl.innerHTML = '';
+        resultsEl.classList.add('open');
+
+        if (result.status === 'INSUFFICIENT_EVIDENCE') {
+          resultsEl.appendChild(renderInsufficient(result));
+          applyMapHighlight([], 'insufficient evidence — map not highlighted');
+          return;
+        }
+
+        const head = el('div', { class: 'sim-result-head' }, [
+          priorityBadge(result.priority),
+          el('span', { class: `evidence-badge ${evidenceBadgeClass(result)}`, text: evidenceStatusLabel(result) })
+        ]);
+        resultsEl.appendChild(head);
+
+        if (result.status === 'PRECEDENT') {
+          resultsEl.appendChild(el('div', {
+            class: 'sim-precedent-note',
+            text: (result.notes && result.notes[0]) ||
+              'This is a mechanistic precedent, not a confirmed outcome for this candidate drug — a screening ' +
+              'signal to investigate before trials, not a diagnosis.'
+          }));
+        }
+
+        const matchRow = el('div', { class: 'sim-match-row' });
+        const matchedGeneSpan = el('span');
+        matchedGeneSpan.appendChild(document.createTextNode('Matched gene: '));
+        matchedGeneSpan.appendChild(el('b', { text: result.matched_gene || '—' }));
+        matchRow.appendChild(matchedGeneSpan);
+        if (result.matched_variant) {
+          const v = el('span');
+          v.appendChild(document.createTextNode('Matched variant: '));
+          v.appendChild(el('b', { text: result.matched_variant }));
+          matchRow.appendChild(v);
+        }
+        resultsEl.appendChild(matchRow);
+
+        resultsEl.appendChild(el('div', { class: 'sim-block-title', text: 'Population signals' }));
+        if (result.population_signals && result.population_signals.length) {
+          result.population_signals.forEach(sig => {
+            const row = el('div', { class: 'signal-row' });
+            row.appendChild(el('span', { class: 'signal-pop', text: sig.population }));
+            const freq = formatFrequency(sig);
+            if (freq) {
+              row.appendChild(el('span', { class: 'signal-freq', text: `${freq} (documented frequency, not a probability of harm)` }));
+            }
+            if (sig.notes) row.appendChild(el('span', { class: 'signal-note', text: sig.notes }));
+            resultsEl.appendChild(row);
+          });
+        } else {
+          resultsEl.appendChild(el('p', {
+            class: 'no-signal-note',
+            text: 'No population frequency data available in the current evidence base for this gene/pathway. ' +
+              'The map is not highlighted — Kavach does not substitute an old or unrelated figure to fill the gap.'
+          }));
+        }
+        // Adapter output only — never a hardcoded region, never invented data.
+        applyMapHighlight(
+          populationSignalsToClusters(result.population_signals),
+          'no population-frequency data for this pathway — map not highlighted'
+        );
+
+        if (result.representation_gaps && result.representation_gaps.length) {
+          resultsEl.appendChild(el('div', { class: 'sim-block-title', text: 'Trial representation gap' }));
+          const gapLabels = result.representation_gaps
+            .map(id => (SIM_POPULATIONS.find(p => p.id === id) || { label: id }).label);
+          resultsEl.appendChild(el('div', { class: 'gap-banner' }, [
+            document.createTextNode('Populations with a documented signal not covered by your planned trial regions: ' + gapLabels.join(', ')),
+            el('span', {
+              class: 'gap-caption',
+              text: 'A representation gap flags a population to include in screening — it does not by itself prove clinical risk.'
+            })
+          ]));
+        }
+
+        if (result.sources && result.sources.length) {
+          resultsEl.appendChild(el('div', { class: 'sim-block-title', text: 'Evidence & sources' }));
+          resultsEl.appendChild(renderSources(result.sources));
+        }
+
+        resultsEl.appendChild(el('hr', { class: 'explanation-divider' }));
+        resultsEl.appendChild(el('div', {
+          class: 'explanation-block-label',
+          text: `Evidence-based engine result — status ${result.status}`
+        }));
+        resultsEl.appendChild(el('div', {
+          class: 'explanation-block-label ai',
+          text: `AI explanation (${result.explanation_source === 'llm' ? 'Groq-generated' : 'deterministic fallback'}, rephrasing only — cannot change the result above)`
+        }));
+        resultsEl.appendChild(el('p', { class: 'sim-explanation-text', text: result.explanation }));
+      }
+
+      function renderError(message) {
+        resultsEl.innerHTML = '';
+        resultsEl.classList.add('open');
+        resultsEl.appendChild(el('p', { class: 'sim-results-error', text: message }));
+      }
+
+      runBtn.addEventListener('click', async () => {
+        const drugName = drugNameInput.value.trim();
+        if (!drugName) {
+          statusInline.textContent = 'Enter a candidate drug name first.';
+          drugNameInput.focus();
+          return;
+        }
+        const pathway = pathwaySelect.value;
+
+        runBtn.disabled = true;
+        statusInline.textContent = 'Running pre-trial screen…';
+        resultsEl.classList.add('open');
+        resultsEl.innerHTML = '';
+        resultsEl.appendChild(el('p', { class: 'sim-results-empty', text: 'Contacting the screening engine…' }));
+
+        const body = {
+          drug_name: drugName,
+          gene: pathway,
+          planned_trial_regions: Array.from(selectedRegions)
+        };
+
+        const result = await postJSON('/v2/predict', body, 8000);
+
+        runBtn.disabled = false;
+        statusInline.textContent = '';
+
+        if (!result) {
+          renderError('Could not reach the screening engine. Check that the backend is running and the ' +
+            'kavach_knowledge_base_v1 loaded successfully, then try again.');
+          return;
+        }
+        renderResult(result);
       });
     })();
   </script>

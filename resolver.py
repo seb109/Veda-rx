@@ -112,23 +112,55 @@ def _resolve_sources(kb: KnowledgeBase, source_ids: list[str]) -> list[dict]:
     return resolved
 
 
-def _population_signals_for(kb: KnowledgeBase, variant_id: str | None) -> list[dict]:
-    if not variant_id:
-        return []
+def _freq_row_to_signal(kb: KnowledgeBase, freq: dict) -> dict:
+    return {
+        "variant": freq.get("variant"),
+        "population": freq.get("population"),
+        "frequency_type": freq.get("frequency_type"),
+        "frequency_min": freq.get("frequency_min"),
+        "frequency_max": freq.get("frequency_max"),
+        "unit": freq.get("unit"),
+        "notes": freq.get("notes"),
+        "sources": _resolve_sources(kb, freq.get("source_ids", [])),
+    }
+
+
+def _population_signals_for(
+    kb: KnowledgeBase,
+    variant_id: str | None = None,
+    gene_id: str | None = None,
+) -> list[dict]:
+    """Presentation-evidence lookup only — no phenotype inference, no scoring.
+
+    HLA-style relationships carry an explicit `variant`, so they resolve here
+    exactly as before. CYP2D6/CYP2C19-style relationships carry a `gene`
+    instead (their phenotype is diplotype-based, not a single-allele-carrier
+    fact), so for those we additionally pull allele-frequency rows for every
+    variant.json entry that belongs to that gene. This surfaces documented
+    per-allele frequency evidence for the gene pathway; it does not attempt
+    to combine those allele frequencies into a metabolizer-phenotype
+    frequency, and it does not filter by which specific phenotype (e.g.
+    ultrarapid vs. poor) a given allele happens to support — each returned
+    signal is self-labeled with its own `variant` id and frequency_type so a
+    caller can distinguish them.
+    """
     signals = []
-    for freq in kb.frequencies_by_variant.get(variant_id, []):
-        signals.append(
-            {
-                "variant": freq.get("variant"),
-                "population": freq.get("population"),
-                "frequency_type": freq.get("frequency_type"),
-                "frequency_min": freq.get("frequency_min"),
-                "frequency_max": freq.get("frequency_max"),
-                "unit": freq.get("unit"),
-                "notes": freq.get("notes"),
-                "sources": _resolve_sources(kb, freq.get("source_ids", [])),
-            }
+    seen_variants = set()
+
+    if variant_id:
+        for freq in kb.frequencies_by_variant.get(variant_id, []):
+            signals.append(_freq_row_to_signal(kb, freq))
+        seen_variants.add(variant_id)
+
+    if gene_id:
+        gene_variant_ids = sorted(
+            v_id for v_id, v in kb.variants.items()
+            if v.get("gene") == gene_id and v_id not in seen_variants
         )
+        for v_id in gene_variant_ids:
+            for freq in kb.frequencies_by_variant.get(v_id, []):
+                signals.append(_freq_row_to_signal(kb, freq))
+
     return signals
 
 
@@ -181,7 +213,7 @@ def resolve_explain(
     rel = _best_relationship(relationships)
     priority = compute_priority(rel.get("severity"), rel.get("evidence_level"))
     variant_id = rel.get("variant")
-    population_signals = _population_signals_for(kb, variant_id)
+    population_signals = _population_signals_for(kb, variant_id, rel.get("gene"))
 
     return ResolverResult(
         query=query,
@@ -232,7 +264,7 @@ def resolve_predict(
     if direct_matches:
         rel = _best_relationship(direct_matches)
         priority = compute_priority(rel.get("severity"), rel.get("evidence_level"))
-        population_signals = _population_signals_for(kb, rel.get("variant"))
+        population_signals = _population_signals_for(kb, rel.get("variant"), rel.get("gene"))
         return ResolverResult(
             query=query,
             status=STATUS_DIRECT,
@@ -255,7 +287,7 @@ def resolve_predict(
     rel = _best_relationship(candidates)
     base_priority = compute_priority(rel.get("severity"), rel.get("evidence_level"))
     priority = _cap(base_priority, PRECEDENT_PRIORITY_CEILING)
-    population_signals = _population_signals_for(kb, rel.get("variant"))
+    population_signals = _population_signals_for(kb, rel.get("variant"), rel.get("gene"))
 
     return ResolverResult(
         query=query,

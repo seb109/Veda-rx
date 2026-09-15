@@ -19,5 +19,61 @@
     "type": "allele",
     "phenotype_model": "carrier_status",
     "documented_effect": "increased_risk_of_abacavir_hypersensitivity"
+  },
+  {
+    "id": "CYP2D6*1xN",
+    "gene": "CYP2D6",
+    "type": "allele",
+    "phenotype_model": "activity_based",
+    "documented_effect": "increased_function_gene_duplication"
+  },
+  {
+    "id": "CYP2D6*2xN",
+    "gene": "CYP2D6",
+    "type": "allele",
+    "phenotype_model": "activity_based",
+    "documented_effect": "increased_function_gene_duplication"
+  },
+  {
+    "id": "CYP2D6*3",
+    "gene": "CYP2D6",
+    "type": "allele",
+    "phenotype_model": "activity_based",
+    "documented_effect": "no_function_allele"
+  },
+  {
+    "id": "CYP2D6*4",
+    "gene": "CYP2D6",
+    "type": "allele",
+    "phenotype_model": "activity_based",
+    "documented_effect": "no_function_allele"
+  },
+  {
+    "id": "CYP2D6*5",
+    "gene": "CYP2D6",
+    "type": "allele",
+    "phenotype_model": "activity_based",
+    "documented_effect": "no_function_allele"
+  },
+  {
+    "id": "CYP2D6*6",
+    "gene": "CYP2D6",
+    "type": "allele",
+    "phenotype_model": "activity_based",
+    "documented_effect": "no_function_allele"
+  },
+  {
+    "id": "CYP2C19*2",
+    "gene": "CYP2C19",
+    "type": "allele",
+    "phenotype_model": "activity_based",
+    "documented_effect": "no_function_allele"
+  },
+  {
+    "id": "CYP2C19*3",
+    "gene": "CYP2C19",
+    "type": "allele",
+    "phenotype_model": "activity_based",
+    "documented_effect": "no_function_allele"
   }
 ]

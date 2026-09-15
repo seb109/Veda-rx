@@ -59,6 +59,30 @@
     ]
   },
   {
+    "id": "CPIC-CODEINE-SUPP-2012",
+    "organization": "CPIC",
+    "title": "Crews KR et al., Clinical Pharmacogenetics Implementation Consortium (CPIC) guidelines for cytochrome P450 2D6 (CYP2D6) genotype and codeine therapy — Supplement v1.0, Supplemental Table S1 (Frequencies of CYP2D6 alleles in major race/ethnic groups)",
+    "pmid": "22205192",
+    "url": "https://files.cpicpgx.org/data/guideline/publication/codeine/2012/22205192-supplement.pdf",
+    "supports": [
+      "CYP2D6",
+      "allele_frequency",
+      "population_frequency"
+    ]
+  },
+  {
+    "id": "CPIC-CLOPIDOGREL-SUPP-2011",
+    "organization": "CPIC",
+    "title": "Scott SA et al., Clinical Pharmacogenetics Implementation Consortium guidelines for CYP2C19 genotype and clopidogrel therapy — Supplement v1.1, Supplemental Table S3 (Frequencies of CYP2C19 alleles in major race/ethnic groups)",
+    "pmid": "21716271",
+    "url": "https://files.cpicpgx.org/data/guideline/publication/clopidogrel/2011/21716271-supplement.pdf",
+    "supports": [
+      "CYP2C19",
+      "allele_frequency",
+      "population_frequency"
+    ]
+  },
+  {
     "id": "CPIC-API",
     "organization": "CPIC",
     "title": "CPIC API",

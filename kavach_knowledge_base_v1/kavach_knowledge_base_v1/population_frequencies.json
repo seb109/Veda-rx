@@ -70,5 +70,509 @@
     "source_ids": [
       "CPIC-ABACAVIR-2014"
     ]
+  },
+  {
+    "variant": "CYP2D6*1xN",
+    "population": "SUB_SAHARAN_AFRICAN",
+    "frequency_type": "allele_frequency",
+    "frequency_min": 0.0147,
+    "frequency_max": 0.0147,
+    "unit": "proportion",
+    "notes": "CPIC Table S1 (Crews et al. 2012 codeine guideline supplement) reports this as an allele frequency of 1.47% in CPIC's \"African\" race/ethnic group; converted here to a proportion for consistency with other rows in this file. Mapped to the SUB_SAHARAN_AFRICAN population id as the closest existing Kavach category for CPIC's \"African\" label. CYP2D6*1xN is a increased-function gene duplication (associated with CYP2D6 ultrarapid metabolizer status). This is an allele frequency only — not a carrier frequency, not a metabolizer-phenotype frequency, and not a probability of adverse drug reaction.",
+    "source_ids": [
+      "CPIC-CODEINE-SUPP-2012"
+    ]
+  },
+  {
+    "variant": "CYP2D6*1xN",
+    "population": "SOUTHWEST_ASIAN",
+    "frequency_type": "allele_frequency",
+    "frequency_min": 0.0381,
+    "frequency_max": 0.0381,
+    "unit": "proportion",
+    "notes": "CPIC Table S1 (Crews et al. 2012 codeine guideline supplement) reports this as an allele frequency of 3.81% in CPIC's \"Middle Eastern\" race/ethnic group; converted here to a proportion for consistency with other rows in this file. Mapped to the SOUTHWEST_ASIAN population id as the closest existing Kavach category for CPIC's \"Middle Eastern\" label. CYP2D6*1xN is a increased-function gene duplication (associated with CYP2D6 ultrarapid metabolizer status). This is an allele frequency only — not a carrier frequency, not a metabolizer-phenotype frequency, and not a probability of adverse drug reaction.",
+    "source_ids": [
+      "CPIC-CODEINE-SUPP-2012"
+    ]
+  },
+  {
+    "variant": "CYP2D6*1xN",
+    "population": "EAST_ASIAN",
+    "frequency_type": "allele_frequency",
+    "frequency_min": 0.0029,
+    "frequency_max": 0.0029,
+    "unit": "proportion",
+    "notes": "CPIC Table S1 (Crews et al. 2012 codeine guideline supplement) reports this as an allele frequency of 0.29% in CPIC's \"East Asian\" race/ethnic group; converted here to a proportion for consistency with other rows in this file. Mapped to the EAST_ASIAN population id as the closest existing Kavach category for CPIC's \"East Asian\" label. CYP2D6*1xN is a increased-function gene duplication (associated with CYP2D6 ultrarapid metabolizer status). This is an allele frequency only — not a carrier frequency, not a metabolizer-phenotype frequency, and not a probability of adverse drug reaction.",
+    "source_ids": [
+      "CPIC-CODEINE-SUPP-2012"
+    ]
+  },
+  {
+    "variant": "CYP2D6*1xN",
+    "population": "SOUTH_ASIAN",
+    "frequency_type": "allele_frequency",
+    "frequency_min": 0.005,
+    "frequency_max": 0.005,
+    "unit": "proportion",
+    "notes": "CPIC Table S1 (Crews et al. 2012 codeine guideline supplement) reports this as an allele frequency of 0.5% in CPIC's \"South/Central Asian\" race/ethnic group; converted here to a proportion for consistency with other rows in this file. Mapped to the SOUTH_ASIAN population id as the closest existing Kavach category for CPIC's \"South/Central Asian\" label. CYP2D6*1xN is a increased-function gene duplication (associated with CYP2D6 ultrarapid metabolizer status). This is an allele frequency only — not a carrier frequency, not a metabolizer-phenotype frequency, and not a probability of adverse drug reaction.",
+    "source_ids": [
+      "CPIC-CODEINE-SUPP-2012"
+    ]
+  },
+  {
+    "variant": "CYP2D6*1xN",
+    "population": "PACIFIC_ISLANDER",
+    "frequency_type": "allele_frequency",
+    "frequency_min": 0.1183,
+    "frequency_max": 0.1183,
+    "unit": "proportion",
+    "notes": "CPIC Table S1 (Crews et al. 2012 codeine guideline supplement) reports this as an allele frequency of 11.83% in CPIC's \"Oceanian\" race/ethnic group; converted here to a proportion for consistency with other rows in this file. Mapped to the PACIFIC_ISLANDER population id as the closest existing Kavach category for CPIC's \"Oceanian\" label. CYP2D6*1xN is a increased-function gene duplication (associated with CYP2D6 ultrarapid metabolizer status). This is an allele frequency only — not a carrier frequency, not a metabolizer-phenotype frequency, and not a probability of adverse drug reaction.",
+    "source_ids": [
+      "CPIC-CODEINE-SUPP-2012"
+    ]
+  },
+  {
+    "variant": "CYP2D6*2xN",
+    "population": "SUB_SAHARAN_AFRICAN",
+    "frequency_type": "allele_frequency",
+    "frequency_min": 0.0641,
+    "frequency_max": 0.0641,
+    "unit": "proportion",
+    "notes": "CPIC Table S1 (Crews et al. 2012 codeine guideline supplement) reports this as an allele frequency of 6.41% in CPIC's \"African\" race/ethnic group; converted here to a proportion for consistency with other rows in this file. Mapped to the SUB_SAHARAN_AFRICAN population id as the closest existing Kavach category for CPIC's \"African\" label. CYP2D6*2xN is a increased-function gene duplication (associated with CYP2D6 ultrarapid metabolizer status). This is an allele frequency only — not a carrier frequency, not a metabolizer-phenotype frequency, and not a probability of adverse drug reaction.",
+    "source_ids": [
+      "CPIC-CODEINE-SUPP-2012"
+    ]
+  },
+  {
+    "variant": "CYP2D6*2xN",
+    "population": "SOUTHWEST_ASIAN",
+    "frequency_type": "allele_frequency",
+    "frequency_min": 0.0493,
+    "frequency_max": 0.0493,
+    "unit": "proportion",
+    "notes": "CPIC Table S1 (Crews et al. 2012 codeine guideline supplement) reports this as an allele frequency of 4.93% in CPIC's \"Middle Eastern\" race/ethnic group; converted here to a proportion for consistency with other rows in this file. Mapped to the SOUTHWEST_ASIAN population id as the closest existing Kavach category for CPIC's \"Middle Eastern\" label. CYP2D6*2xN is a increased-function gene duplication (associated with CYP2D6 ultrarapid metabolizer status). This is an allele frequency only — not a carrier frequency, not a metabolizer-phenotype frequency, and not a probability of adverse drug reaction.",
+    "source_ids": [
+      "CPIC-CODEINE-SUPP-2012"
+    ]
+  },
+  {
+    "variant": "CYP2D6*2xN",
+    "population": "EAST_ASIAN",
+    "frequency_type": "allele_frequency",
+    "frequency_min": 0.0154,
+    "frequency_max": 0.0154,
+    "unit": "proportion",
+    "notes": "CPIC Table S1 (Crews et al. 2012 codeine guideline supplement) reports this as an allele frequency of 1.54% in CPIC's \"East Asian\" race/ethnic group; converted here to a proportion for consistency with other rows in this file. Mapped to the EAST_ASIAN population id as the closest existing Kavach category for CPIC's \"East Asian\" label. CYP2D6*2xN is a increased-function gene duplication (associated with CYP2D6 ultrarapid metabolizer status). This is an allele frequency only — not a carrier frequency, not a metabolizer-phenotype frequency, and not a probability of adverse drug reaction.",
+    "source_ids": [
+      "CPIC-CODEINE-SUPP-2012"
+    ]
+  },
+  {
+    "variant": "CYP2D6*2xN",
+    "population": "SOUTH_ASIAN",
+    "frequency_type": "allele_frequency",
+    "frequency_min": 0.0125,
+    "frequency_max": 0.0125,
+    "unit": "proportion",
+    "notes": "CPIC Table S1 (Crews et al. 2012 codeine guideline supplement) reports this as an allele frequency of 1.25% in CPIC's \"South/Central Asian\" race/ethnic group; converted here to a proportion for consistency with other rows in this file. Mapped to the SOUTH_ASIAN population id as the closest existing Kavach category for CPIC's \"South/Central Asian\" label. CYP2D6*2xN is a increased-function gene duplication (associated with CYP2D6 ultrarapid metabolizer status). This is an allele frequency only — not a carrier frequency, not a metabolizer-phenotype frequency, and not a probability of adverse drug reaction.",
+    "source_ids": [
+      "CPIC-CODEINE-SUPP-2012"
+    ]
+  },
+  {
+    "variant": "CYP2D6*2xN",
+    "population": "PACIFIC_ISLANDER",
+    "frequency_type": "allele_frequency",
+    "frequency_min": 0.0,
+    "frequency_max": 0.0,
+    "unit": "proportion",
+    "notes": "CPIC Table S1 (Crews et al. 2012 codeine guideline supplement) reports this as an allele frequency of 0.0% in CPIC's \"Oceanian\" race/ethnic group; converted here to a proportion for consistency with other rows in this file. Mapped to the PACIFIC_ISLANDER population id as the closest existing Kavach category for CPIC's \"Oceanian\" label. CYP2D6*2xN is a increased-function gene duplication (associated with CYP2D6 ultrarapid metabolizer status). This is an allele frequency only — not a carrier frequency, not a metabolizer-phenotype frequency, and not a probability of adverse drug reaction.",
+    "source_ids": [
+      "CPIC-CODEINE-SUPP-2012"
+    ]
+  },
+  {
+    "variant": "CYP2D6*3",
+    "population": "SUB_SAHARAN_AFRICAN",
+    "frequency_type": "allele_frequency",
+    "frequency_min": 0.0003,
+    "frequency_max": 0.0003,
+    "unit": "proportion",
+    "notes": "CPIC Table S1 (Crews et al. 2012 codeine guideline supplement) reports this as an allele frequency of 0.03% in CPIC's \"African\" race/ethnic group; converted here to a proportion for consistency with other rows in this file. Mapped to the SUB_SAHARAN_AFRICAN population id as the closest existing Kavach category for CPIC's \"African\" label. CYP2D6*3 is a no-function allele (associated with CYP2D6 poor metabolizer status). This is an allele frequency only — not a carrier frequency, not a metabolizer-phenotype frequency, and not a probability of adverse drug reaction.",
+    "source_ids": [
+      "CPIC-CODEINE-SUPP-2012"
+    ]
+  },
+  {
+    "variant": "CYP2D6*3",
+    "population": "SOUTHWEST_ASIAN",
+    "frequency_type": "allele_frequency",
+    "frequency_min": 0.0013,
+    "frequency_max": 0.0013,
+    "unit": "proportion",
+    "notes": "CPIC Table S1 (Crews et al. 2012 codeine guideline supplement) reports this as an allele frequency of 0.13% in CPIC's \"Middle Eastern\" race/ethnic group; converted here to a proportion for consistency with other rows in this file. Mapped to the SOUTHWEST_ASIAN population id as the closest existing Kavach category for CPIC's \"Middle Eastern\" label. CYP2D6*3 is a no-function allele (associated with CYP2D6 poor metabolizer status). This is an allele frequency only — not a carrier frequency, not a metabolizer-phenotype frequency, and not a probability of adverse drug reaction.",
+    "source_ids": [
+      "CPIC-CODEINE-SUPP-2012"
+    ]
+  },
+  {
+    "variant": "CYP2D6*3",
+    "population": "EAST_ASIAN",
+    "frequency_type": "allele_frequency",
+    "frequency_min": 0.0,
+    "frequency_max": 0.0,
+    "unit": "proportion",
+    "notes": "CPIC Table S1 (Crews et al. 2012 codeine guideline supplement) reports this as an allele frequency of 0.0% in CPIC's \"East Asian\" race/ethnic group; converted here to a proportion for consistency with other rows in this file. Mapped to the EAST_ASIAN population id as the closest existing Kavach category for CPIC's \"East Asian\" label. CYP2D6*3 is a no-function allele (associated with CYP2D6 poor metabolizer status). This is an allele frequency only — not a carrier frequency, not a metabolizer-phenotype frequency, and not a probability of adverse drug reaction.",
+    "source_ids": [
+      "CPIC-CODEINE-SUPP-2012"
+    ]
+  },
+  {
+    "variant": "CYP2D6*3",
+    "population": "SOUTH_ASIAN",
+    "frequency_type": "allele_frequency",
+    "frequency_min": 0.0,
+    "frequency_max": 0.0,
+    "unit": "proportion",
+    "notes": "CPIC Table S1 (Crews et al. 2012 codeine guideline supplement) reports this as an allele frequency of 0.0% in CPIC's \"South/Central Asian\" race/ethnic group; converted here to a proportion for consistency with other rows in this file. Mapped to the SOUTH_ASIAN population id as the closest existing Kavach category for CPIC's \"South/Central Asian\" label. CYP2D6*3 is a no-function allele (associated with CYP2D6 poor metabolizer status). This is an allele frequency only — not a carrier frequency, not a metabolizer-phenotype frequency, and not a probability of adverse drug reaction.",
+    "source_ids": [
+      "CPIC-CODEINE-SUPP-2012"
+    ]
+  },
+  {
+    "variant": "CYP2D6*3",
+    "population": "PACIFIC_ISLANDER",
+    "frequency_type": "allele_frequency",
+    "frequency_min": 0.0,
+    "frequency_max": 0.0,
+    "unit": "proportion",
+    "notes": "CPIC Table S1 (Crews et al. 2012 codeine guideline supplement) reports this as an allele frequency of 0.0% in CPIC's \"Oceanian\" race/ethnic group; converted here to a proportion for consistency with other rows in this file. Mapped to the PACIFIC_ISLANDER population id as the closest existing Kavach category for CPIC's \"Oceanian\" label. CYP2D6*3 is a no-function allele (associated with CYP2D6 poor metabolizer status). This is an allele frequency only — not a carrier frequency, not a metabolizer-phenotype frequency, and not a probability of adverse drug reaction.",
+    "source_ids": [
+      "CPIC-CODEINE-SUPP-2012"
+    ]
+  },
+  {
+    "variant": "CYP2D6*4",
+    "population": "SUB_SAHARAN_AFRICAN",
+    "frequency_type": "allele_frequency",
+    "frequency_min": 0.0336,
+    "frequency_max": 0.0336,
+    "unit": "proportion",
+    "notes": "CPIC Table S1 (Crews et al. 2012 codeine guideline supplement) reports this as an allele frequency of 3.36% in CPIC's \"African\" race/ethnic group; converted here to a proportion for consistency with other rows in this file. Mapped to the SUB_SAHARAN_AFRICAN population id as the closest existing Kavach category for CPIC's \"African\" label. CYP2D6*4 is a no-function allele (associated with CYP2D6 poor metabolizer status). This is an allele frequency only — not a carrier frequency, not a metabolizer-phenotype frequency, and not a probability of adverse drug reaction.",
+    "source_ids": [
+      "CPIC-CODEINE-SUPP-2012"
+    ]
+  },
+  {
+    "variant": "CYP2D6*4",
+    "population": "SOUTHWEST_ASIAN",
+    "frequency_type": "allele_frequency",
+    "frequency_min": 0.076,
+    "frequency_max": 0.076,
+    "unit": "proportion",
+    "notes": "CPIC Table S1 (Crews et al. 2012 codeine guideline supplement) reports this as an allele frequency of 7.6% in CPIC's \"Middle Eastern\" race/ethnic group; converted here to a proportion for consistency with other rows in this file. Mapped to the SOUTHWEST_ASIAN population id as the closest existing Kavach category for CPIC's \"Middle Eastern\" label. CYP2D6*4 is a no-function allele (associated with CYP2D6 poor metabolizer status). This is an allele frequency only — not a carrier frequency, not a metabolizer-phenotype frequency, and not a probability of adverse drug reaction.",
+    "source_ids": [
+      "CPIC-CODEINE-SUPP-2012"
+    ]
+  },
+  {
+    "variant": "CYP2D6*4",
+    "population": "EAST_ASIAN",
+    "frequency_type": "allele_frequency",
+    "frequency_min": 0.0046,
+    "frequency_max": 0.0046,
+    "unit": "proportion",
+    "notes": "CPIC Table S1 (Crews et al. 2012 codeine guideline supplement) reports this as an allele frequency of 0.46% in CPIC's \"East Asian\" race/ethnic group; converted here to a proportion for consistency with other rows in this file. Mapped to the EAST_ASIAN population id as the closest existing Kavach category for CPIC's \"East Asian\" label. CYP2D6*4 is a no-function allele (associated with CYP2D6 poor metabolizer status). This is an allele frequency only — not a carrier frequency, not a metabolizer-phenotype frequency, and not a probability of adverse drug reaction.",
+    "source_ids": [
+      "CPIC-CODEINE-SUPP-2012"
+    ]
+  },
+  {
+    "variant": "CYP2D6*4",
+    "population": "SOUTH_ASIAN",
+    "frequency_type": "allele_frequency",
+    "frequency_min": 0.0656,
+    "frequency_max": 0.0656,
+    "unit": "proportion",
+    "notes": "CPIC Table S1 (Crews et al. 2012 codeine guideline supplement) reports this as an allele frequency of 6.56% in CPIC's \"South/Central Asian\" race/ethnic group; converted here to a proportion for consistency with other rows in this file. Mapped to the SOUTH_ASIAN population id as the closest existing Kavach category for CPIC's \"South/Central Asian\" label. CYP2D6*4 is a no-function allele (associated with CYP2D6 poor metabolizer status). This is an allele frequency only — not a carrier frequency, not a metabolizer-phenotype frequency, and not a probability of adverse drug reaction.",
+    "source_ids": [
+      "CPIC-CODEINE-SUPP-2012"
+    ]
+  },
+  {
+    "variant": "CYP2D6*4",
+    "population": "PACIFIC_ISLANDER",
+    "frequency_type": "allele_frequency",
+    "frequency_min": 0.0113,
+    "frequency_max": 0.0113,
+    "unit": "proportion",
+    "notes": "CPIC Table S1 (Crews et al. 2012 codeine guideline supplement) reports this as an allele frequency of 1.13% in CPIC's \"Oceanian\" race/ethnic group; converted here to a proportion for consistency with other rows in this file. Mapped to the PACIFIC_ISLANDER population id as the closest existing Kavach category for CPIC's \"Oceanian\" label. CYP2D6*4 is a no-function allele (associated with CYP2D6 poor metabolizer status). This is an allele frequency only — not a carrier frequency, not a metabolizer-phenotype frequency, and not a probability of adverse drug reaction.",
+    "source_ids": [
+      "CPIC-CODEINE-SUPP-2012"
+    ]
+  },
+  {
+    "variant": "CYP2D6*5",
+    "population": "SUB_SAHARAN_AFRICAN",
+    "frequency_type": "allele_frequency",
+    "frequency_min": 0.0607,
+    "frequency_max": 0.0607,
+    "unit": "proportion",
+    "notes": "CPIC Table S1 (Crews et al. 2012 codeine guideline supplement) reports this as an allele frequency of 6.07% in CPIC's \"African\" race/ethnic group; converted here to a proportion for consistency with other rows in this file. Mapped to the SUB_SAHARAN_AFRICAN population id as the closest existing Kavach category for CPIC's \"African\" label. CYP2D6*5 is a no-function allele (associated with CYP2D6 poor metabolizer status). This is an allele frequency only — not a carrier frequency, not a metabolizer-phenotype frequency, and not a probability of adverse drug reaction.",
+    "source_ids": [
+      "CPIC-CODEINE-SUPP-2012"
+    ]
+  },
+  {
+    "variant": "CYP2D6*5",
+    "population": "SOUTHWEST_ASIAN",
+    "frequency_type": "allele_frequency",
+    "frequency_min": 0.0234,
+    "frequency_max": 0.0234,
+    "unit": "proportion",
+    "notes": "CPIC Table S1 (Crews et al. 2012 codeine guideline supplement) reports this as an allele frequency of 2.34% in CPIC's \"Middle Eastern\" race/ethnic group; converted here to a proportion for consistency with other rows in this file. Mapped to the SOUTHWEST_ASIAN population id as the closest existing Kavach category for CPIC's \"Middle Eastern\" label. CYP2D6*5 is a no-function allele (associated with CYP2D6 poor metabolizer status). This is an allele frequency only — not a carrier frequency, not a metabolizer-phenotype frequency, and not a probability of adverse drug reaction.",
+    "source_ids": [
+      "CPIC-CODEINE-SUPP-2012"
+    ]
+  },
+  {
+    "variant": "CYP2D6*5",
+    "population": "EAST_ASIAN",
+    "frequency_type": "allele_frequency",
+    "frequency_min": 0.0566,
+    "frequency_max": 0.0566,
+    "unit": "proportion",
+    "notes": "CPIC Table S1 (Crews et al. 2012 codeine guideline supplement) reports this as an allele frequency of 5.66% in CPIC's \"East Asian\" race/ethnic group; converted here to a proportion for consistency with other rows in this file. Mapped to the EAST_ASIAN population id as the closest existing Kavach category for CPIC's \"East Asian\" label. CYP2D6*5 is a no-function allele (associated with CYP2D6 poor metabolizer status). This is an allele frequency only — not a carrier frequency, not a metabolizer-phenotype frequency, and not a probability of adverse drug reaction.",
+    "source_ids": [
+      "CPIC-CODEINE-SUPP-2012"
+    ]
+  },
+  {
+    "variant": "CYP2D6*5",
+    "population": "SOUTH_ASIAN",
+    "frequency_type": "allele_frequency",
+    "frequency_min": 0.0254,
+    "frequency_max": 0.0254,
+    "unit": "proportion",
+    "notes": "CPIC Table S1 (Crews et al. 2012 codeine guideline supplement) reports this as an allele frequency of 2.54% in CPIC's \"South/Central Asian\" race/ethnic group; converted here to a proportion for consistency with other rows in this file. Mapped to the SOUTH_ASIAN population id as the closest existing Kavach category for CPIC's \"South/Central Asian\" label. CYP2D6*5 is a no-function allele (associated with CYP2D6 poor metabolizer status). This is an allele frequency only — not a carrier frequency, not a metabolizer-phenotype frequency, and not a probability of adverse drug reaction.",
+    "source_ids": [
+      "CPIC-CODEINE-SUPP-2012"
+    ]
+  },
+  {
+    "variant": "CYP2D6*5",
+    "population": "PACIFIC_ISLANDER",
+    "frequency_type": "allele_frequency",
+    "frequency_min": 0.0495,
+    "frequency_max": 0.0495,
+    "unit": "proportion",
+    "notes": "CPIC Table S1 (Crews et al. 2012 codeine guideline supplement) reports this as an allele frequency of 4.95% in CPIC's \"Oceanian\" race/ethnic group; converted here to a proportion for consistency with other rows in this file. Mapped to the PACIFIC_ISLANDER population id as the closest existing Kavach category for CPIC's \"Oceanian\" label. CYP2D6*5 is a no-function allele (associated with CYP2D6 poor metabolizer status). This is an allele frequency only — not a carrier frequency, not a metabolizer-phenotype frequency, and not a probability of adverse drug reaction.",
+    "source_ids": [
+      "CPIC-CODEINE-SUPP-2012"
+    ]
+  },
+  {
+    "variant": "CYP2D6*6",
+    "population": "SUB_SAHARAN_AFRICAN",
+    "frequency_type": "allele_frequency",
+    "frequency_min": 0.0,
+    "frequency_max": 0.0,
+    "unit": "proportion",
+    "notes": "CPIC Table S1 (Crews et al. 2012 codeine guideline supplement) reports this as an allele frequency of 0.0% in CPIC's \"African\" race/ethnic group; converted here to a proportion for consistency with other rows in this file. Mapped to the SUB_SAHARAN_AFRICAN population id as the closest existing Kavach category for CPIC's \"African\" label. CYP2D6*6 is a no-function allele (associated with CYP2D6 poor metabolizer status). This is an allele frequency only — not a carrier frequency, not a metabolizer-phenotype frequency, and not a probability of adverse drug reaction.",
+    "source_ids": [
+      "CPIC-CODEINE-SUPP-2012"
+    ]
+  },
+  {
+    "variant": "CYP2D6*6",
+    "population": "SOUTHWEST_ASIAN",
+    "frequency_type": "allele_frequency",
+    "frequency_min": 0.0096,
+    "frequency_max": 0.0096,
+    "unit": "proportion",
+    "notes": "CPIC Table S1 (Crews et al. 2012 codeine guideline supplement) reports this as an allele frequency of 0.96% in CPIC's \"Middle Eastern\" race/ethnic group; converted here to a proportion for consistency with other rows in this file. Mapped to the SOUTHWEST_ASIAN population id as the closest existing Kavach category for CPIC's \"Middle Eastern\" label. CYP2D6*6 is a no-function allele (associated with CYP2D6 poor metabolizer status). This is an allele frequency only — not a carrier frequency, not a metabolizer-phenotype frequency, and not a probability of adverse drug reaction.",
+    "source_ids": [
+      "CPIC-CODEINE-SUPP-2012"
+    ]
+  },
+  {
+    "variant": "CYP2D6*6",
+    "population": "EAST_ASIAN",
+    "frequency_type": "allele_frequency",
+    "frequency_min": 0.0003,
+    "frequency_max": 0.0003,
+    "unit": "proportion",
+    "notes": "CPIC Table S1 (Crews et al. 2012 codeine guideline supplement) reports this as an allele frequency of 0.03% in CPIC's \"East Asian\" race/ethnic group; converted here to a proportion for consistency with other rows in this file. Mapped to the EAST_ASIAN population id as the closest existing Kavach category for CPIC's \"East Asian\" label. CYP2D6*6 is a no-function allele (associated with CYP2D6 poor metabolizer status). This is an allele frequency only — not a carrier frequency, not a metabolizer-phenotype frequency, and not a probability of adverse drug reaction.",
+    "source_ids": [
+      "CPIC-CODEINE-SUPP-2012"
+    ]
+  },
+  {
+    "variant": "CYP2D6*6",
+    "population": "SOUTH_ASIAN",
+    "frequency_type": "allele_frequency",
+    "frequency_min": 0.0,
+    "frequency_max": 0.0,
+    "unit": "proportion",
+    "notes": "CPIC Table S1 (Crews et al. 2012 codeine guideline supplement) reports this as an allele frequency of 0.0% in CPIC's \"South/Central Asian\" race/ethnic group; converted here to a proportion for consistency with other rows in this file. Mapped to the SOUTH_ASIAN population id as the closest existing Kavach category for CPIC's \"South/Central Asian\" label. CYP2D6*6 is a no-function allele (associated with CYP2D6 poor metabolizer status). This is an allele frequency only — not a carrier frequency, not a metabolizer-phenotype frequency, and not a probability of adverse drug reaction.",
+    "source_ids": [
+      "CPIC-CODEINE-SUPP-2012"
+    ]
+  },
+  {
+    "variant": "CYP2D6*6",
+    "population": "PACIFIC_ISLANDER",
+    "frequency_type": "allele_frequency",
+    "frequency_min": 0.0,
+    "frequency_max": 0.0,
+    "unit": "proportion",
+    "notes": "CPIC Table S1 (Crews et al. 2012 codeine guideline supplement) reports this as an allele frequency of 0.0% in CPIC's \"Oceanian\" race/ethnic group; converted here to a proportion for consistency with other rows in this file. Mapped to the PACIFIC_ISLANDER population id as the closest existing Kavach category for CPIC's \"Oceanian\" label. CYP2D6*6 is a no-function allele (associated with CYP2D6 poor metabolizer status). This is an allele frequency only — not a carrier frequency, not a metabolizer-phenotype frequency, and not a probability of adverse drug reaction.",
+    "source_ids": [
+      "CPIC-CODEINE-SUPP-2012"
+    ]
+  },
+  {
+    "variant": "CYP2C19*2",
+    "population": "SUB_SAHARAN_AFRICAN",
+    "frequency_type": "allele_frequency",
+    "frequency_min": 0.15,
+    "frequency_max": 0.15,
+    "unit": "proportion",
+    "notes": "CPIC Table S3 (Scott et al. 2011 clopidogrel guideline supplement) reports this as an allele frequency (proportion) in CPIC's \"African\" race/ethnic group. Mapped to the SUB_SAHARAN_AFRICAN population id as the closest existing Kavach category for CPIC's \"African\" label. CYP2C19*2 is a no-function allele (associated with CYP2C19 intermediate/poor metabolizer status). This is an allele frequency only — not a carrier frequency, not a metabolizer-phenotype frequency, and not a probability of adverse drug reaction.",
+    "source_ids": [
+      "CPIC-CLOPIDOGREL-SUPP-2011"
+    ]
+  },
+  {
+    "variant": "CYP2C19*2",
+    "population": "EAST_ASIAN",
+    "frequency_type": "allele_frequency",
+    "frequency_min": 0.29,
+    "frequency_max": 0.29,
+    "unit": "proportion",
+    "notes": "CPIC Table S3 (Scott et al. 2011 clopidogrel guideline supplement) reports this as an allele frequency (proportion) in CPIC's \"East Asian\" race/ethnic group. Mapped to the EAST_ASIAN population id as the closest existing Kavach category for CPIC's \"East Asian\" label. CYP2C19*2 is a no-function allele (associated with CYP2C19 intermediate/poor metabolizer status). This is an allele frequency only — not a carrier frequency, not a metabolizer-phenotype frequency, and not a probability of adverse drug reaction.",
+    "source_ids": [
+      "CPIC-CLOPIDOGREL-SUPP-2011"
+    ]
+  },
+  {
+    "variant": "CYP2C19*2",
+    "population": "EUROPEAN",
+    "frequency_type": "allele_frequency",
+    "frequency_min": 0.15,
+    "frequency_max": 0.15,
+    "unit": "proportion",
+    "notes": "CPIC Table S3 (Scott et al. 2011 clopidogrel guideline supplement) reports this as an allele frequency (proportion) in CPIC's \"European\" race/ethnic group. Mapped to the EUROPEAN population id as the closest existing Kavach category for CPIC's \"European\" label. CYP2C19*2 is a no-function allele (associated with CYP2C19 intermediate/poor metabolizer status). This is an allele frequency only — not a carrier frequency, not a metabolizer-phenotype frequency, and not a probability of adverse drug reaction.",
+    "source_ids": [
+      "CPIC-CLOPIDOGREL-SUPP-2011"
+    ]
+  },
+  {
+    "variant": "CYP2C19*2",
+    "population": "SOUTHWEST_ASIAN",
+    "frequency_type": "allele_frequency",
+    "frequency_min": 0.12,
+    "frequency_max": 0.12,
+    "unit": "proportion",
+    "notes": "CPIC Table S3 (Scott et al. 2011 clopidogrel guideline supplement) reports this as an allele frequency (proportion) in CPIC's \"Middle Eastern\" race/ethnic group. Mapped to the SOUTHWEST_ASIAN population id as the closest existing Kavach category for CPIC's \"Middle Eastern\" label. CYP2C19*2 is a no-function allele (associated with CYP2C19 intermediate/poor metabolizer status). This is an allele frequency only — not a carrier frequency, not a metabolizer-phenotype frequency, and not a probability of adverse drug reaction.",
+    "source_ids": [
+      "CPIC-CLOPIDOGREL-SUPP-2011"
+    ]
+  },
+  {
+    "variant": "CYP2C19*2",
+    "population": "PACIFIC_ISLANDER",
+    "frequency_type": "allele_frequency",
+    "frequency_min": 0.61,
+    "frequency_max": 0.61,
+    "unit": "proportion",
+    "notes": "CPIC Table S3 (Scott et al. 2011 clopidogrel guideline supplement) reports this as an allele frequency (proportion) in CPIC's \"Oceanian\" race/ethnic group. Mapped to the PACIFIC_ISLANDER population id as the closest existing Kavach category for CPIC's \"Oceanian\" label. CYP2C19*2 is a no-function allele (associated with CYP2C19 intermediate/poor metabolizer status). This is an allele frequency only — not a carrier frequency, not a metabolizer-phenotype frequency, and not a probability of adverse drug reaction.",
+    "source_ids": [
+      "CPIC-CLOPIDOGREL-SUPP-2011"
+    ]
+  },
+  {
+    "variant": "CYP2C19*2",
+    "population": "SOUTH_ASIAN",
+    "frequency_type": "allele_frequency",
+    "frequency_min": 0.35,
+    "frequency_max": 0.35,
+    "unit": "proportion",
+    "notes": "CPIC Table S3 (Scott et al. 2011 clopidogrel guideline supplement) reports this as an allele frequency (proportion) in CPIC's \"South/Central Asian\" race/ethnic group. Mapped to the SOUTH_ASIAN population id as the closest existing Kavach category for CPIC's \"South/Central Asian\" label. CYP2C19*2 is a no-function allele (associated with CYP2C19 intermediate/poor metabolizer status). This is an allele frequency only — not a carrier frequency, not a metabolizer-phenotype frequency, and not a probability of adverse drug reaction.",
+    "source_ids": [
+      "CPIC-CLOPIDOGREL-SUPP-2011"
+    ]
+  },
+  {
+    "variant": "CYP2C19*3",
+    "population": "SUB_SAHARAN_AFRICAN",
+    "frequency_type": "allele_frequency",
+    "frequency_min": 0.0052,
+    "frequency_max": 0.0052,
+    "unit": "proportion",
+    "notes": "CPIC Table S3 (Scott et al. 2011 clopidogrel guideline supplement) reports this as an allele frequency (proportion) in CPIC's \"African\" race/ethnic group. Mapped to the SUB_SAHARAN_AFRICAN population id as the closest existing Kavach category for CPIC's \"African\" label. CYP2C19*3 is a no-function allele (associated with CYP2C19 intermediate/poor metabolizer status). This is an allele frequency only — not a carrier frequency, not a metabolizer-phenotype frequency, and not a probability of adverse drug reaction.",
+    "source_ids": [
+      "CPIC-CLOPIDOGREL-SUPP-2011"
+    ]
+  },
+  {
+    "variant": "CYP2C19*3",
+    "population": "EAST_ASIAN",
+    "frequency_type": "allele_frequency",
+    "frequency_min": 0.089,
+    "frequency_max": 0.089,
+    "unit": "proportion",
+    "notes": "CPIC Table S3 (Scott et al. 2011 clopidogrel guideline supplement) reports this as an allele frequency (proportion) in CPIC's \"East Asian\" race/ethnic group. Mapped to the EAST_ASIAN population id as the closest existing Kavach category for CPIC's \"East Asian\" label. CYP2C19*3 is a no-function allele (associated with CYP2C19 intermediate/poor metabolizer status). This is an allele frequency only — not a carrier frequency, not a metabolizer-phenotype frequency, and not a probability of adverse drug reaction.",
+    "source_ids": [
+      "CPIC-CLOPIDOGREL-SUPP-2011"
+    ]
+  },
+  {
+    "variant": "CYP2C19*3",
+    "population": "EUROPEAN",
+    "frequency_type": "allele_frequency",
+    "frequency_min": 0.0042,
+    "frequency_max": 0.0042,
+    "unit": "proportion",
+    "notes": "CPIC Table S3 (Scott et al. 2011 clopidogrel guideline supplement) reports this as an allele frequency (proportion) in CPIC's \"European\" race/ethnic group. Mapped to the EUROPEAN population id as the closest existing Kavach category for CPIC's \"European\" label. CYP2C19*3 is a no-function allele (associated with CYP2C19 intermediate/poor metabolizer status). This is an allele frequency only — not a carrier frequency, not a metabolizer-phenotype frequency, and not a probability of adverse drug reaction.",
+    "source_ids": [
+      "CPIC-CLOPIDOGREL-SUPP-2011"
+    ]
+  },
+  {
+    "variant": "CYP2C19*3",
+    "population": "SOUTHWEST_ASIAN",
+    "frequency_type": "allele_frequency",
+    "frequency_min": 0.011,
+    "frequency_max": 0.011,
+    "unit": "proportion",
+    "notes": "CPIC Table S3 (Scott et al. 2011 clopidogrel guideline supplement) reports this as an allele frequency (proportion) in CPIC's \"Middle Eastern\" race/ethnic group. Mapped to the SOUTHWEST_ASIAN population id as the closest existing Kavach category for CPIC's \"Middle Eastern\" label. CYP2C19*3 is a no-function allele (associated with CYP2C19 intermediate/poor metabolizer status). This is an allele frequency only — not a carrier frequency, not a metabolizer-phenotype frequency, and not a probability of adverse drug reaction.",
+    "source_ids": [
+      "CPIC-CLOPIDOGREL-SUPP-2011"
+    ]
+  },
+  {
+    "variant": "CYP2C19*3",
+    "population": "PACIFIC_ISLANDER",
+    "frequency_type": "allele_frequency",
+    "frequency_min": 0.15,
+    "frequency_max": 0.15,
+    "unit": "proportion",
+    "notes": "CPIC Table S3 (Scott et al. 2011 clopidogrel guideline supplement) reports this as an allele frequency (proportion) in CPIC's \"Oceanian\" race/ethnic group. Mapped to the PACIFIC_ISLANDER population id as the closest existing Kavach category for CPIC's \"Oceanian\" label. CYP2C19*3 is a no-function allele (associated with CYP2C19 intermediate/poor metabolizer status). This is an allele frequency only — not a carrier frequency, not a metabolizer-phenotype frequency, and not a probability of adverse drug reaction.",
+    "source_ids": [
+      "CPIC-CLOPIDOGREL-SUPP-2011"
+    ]
+  },
+  {
+    "variant": "CYP2C19*3",
+    "population": "SOUTH_ASIAN",
+    "frequency_type": "allele_frequency",
+    "frequency_min": 0.024,
+    "frequency_max": 0.024,
+    "unit": "proportion",
+    "notes": "CPIC Table S3 (Scott et al. 2011 clopidogrel guideline supplement) reports this as an allele frequency (proportion) in CPIC's \"South/Central Asian\" race/ethnic group. Mapped to the SOUTH_ASIAN population id as the closest existing Kavach category for CPIC's \"South/Central Asian\" label. CYP2C19*3 is a no-function allele (associated with CYP2C19 intermediate/poor metabolizer status). This is an allele frequency only — not a carrier frequency, not a metabolizer-phenotype frequency, and not a probability of adverse drug reaction.",
+    "source_ids": [
+      "CPIC-CLOPIDOGREL-SUPP-2011"
+    ]
   }
 ]
