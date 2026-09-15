@@ -17,16 +17,15 @@
       --cyan: #3FD0C9;
       --cyan-dim: #1E4A48;
       --red: #FF3B5C;
-      --red-glow: rgba(255, 59, 92, 0.55);
       --amber: #FFB020;
+      --radius-lg: 18px;
+      --radius-md: 11px;
+      --radius-sm: 8px;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
-    html,
-    body {
+    html, body {
       margin: 0;
       padding: 0;
       background: var(--bg);
@@ -44,14 +43,14 @@
     .app {
       max-width: 1180px;
       margin: 0 auto;
-      padding: 36px 24px 60px;
+      padding: clamp(22px, 6vw, 36px) clamp(16px, 4vw, 24px) 48px;
     }
 
     header {
       display: flex;
       flex-direction: column;
       gap: 10px;
-      margin-bottom: 28px;
+      margin-bottom: clamp(20px, 4vw, 28px);
       max-width: 640px;
     }
 
@@ -78,25 +77,24 @@
       margin: 0;
     }
 
+    /* ---------- mode toggle ---------- */
     .mode-toggle {
       display: flex;
       gap: 4px;
       background: var(--panel);
       border: 1px solid var(--panel-border);
-      border-radius: 11px;
+      border-radius: var(--radius-md);
       padding: 4px;
       width: fit-content;
       margin-bottom: 16px;
     }
 
     .mode-btn {
-      font-family: 'IBM Plex Sans', sans-serif;
-      font-size: 13.5px;
-      font-weight: 500;
+      font: 500 13.5px 'IBM Plex Sans', sans-serif;
       color: var(--muted);
       background: none;
       border: none;
-      border-radius: 8px;
+      border-radius: var(--radius-sm);
       padding: 8px 14px;
       cursor: pointer;
       transition: background 0.2s, color 0.2s;
@@ -107,14 +105,13 @@
       color: var(--cyan);
     }
 
+    /* ---------- simulate panel ---------- */
     .simulate-panel {
       display: none;
       margin-bottom: 20px;
     }
 
-    .simulate-panel.open {
-      display: block;
-    }
+    .simulate-panel.open { display: block; }
 
     .sim-row {
       display: flex;
@@ -122,53 +119,45 @@
       flex-wrap: wrap;
     }
 
-    .sim-row input[type="text"] {
-      flex: 1;
-      min-width: 220px;
+    .field {
       background: var(--panel);
       border: 1px solid var(--panel-border);
-      border-radius: 10px;
+      border-radius: var(--radius-md);
       padding: 10px 14px;
       color: var(--text);
-      font-family: 'IBM Plex Sans', sans-serif;
-      font-size: 14px;
+      font: 14px 'IBM Plex Sans', sans-serif;
+      max-width: 100%;
     }
+
+    .sim-row input[type="text"] {
+      flex: 1 1 200px;
+      min-width: 0;
+    }
+
+    .sim-row select {
+      flex: 1 1 220px;
+      min-width: 0;
+    }
+
+    .sim-run { flex: 0 0 auto; }
 
     .sim-row input[type="text"]:focus {
       outline: none;
       border-color: var(--amber);
     }
 
-    .sim-row select {
-      background: var(--panel);
-      border: 1px solid var(--panel-border);
-      border-radius: 10px;
-      padding: 10px 14px;
-      color: var(--text);
-      font-family: 'IBM Plex Sans', sans-serif;
-      font-size: 14px;
-    }
-
     .sim-run {
       background: linear-gradient(180deg, rgba(255, 176, 32, 0.22), rgba(255, 176, 32, 0.1));
       border: 1px solid var(--amber);
       color: #fff;
-      border-radius: 10px;
+      border-radius: var(--radius-md);
       padding: 10px 18px;
-      font-family: 'IBM Plex Sans', sans-serif;
-      font-size: 14px;
-      font-weight: 500;
+      font: 500 14px 'IBM Plex Sans', sans-serif;
       cursor: pointer;
     }
 
-    .sim-run:hover {
-      background: rgba(255, 176, 32, 0.28);
-    }
-
-    .sim-run:disabled {
-      opacity: 0.5;
-      cursor: default;
-    }
+    .sim-run:hover { background: rgba(255, 176, 32, 0.28); }
+    .sim-run:disabled { opacity: 0.5; cursor: default; }
 
     .sim-hint {
       font-size: 12.5px;
@@ -188,11 +177,16 @@
       margin-left: 8px;
     }
 
+    /* ---------- drug pills ---------- */
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
 
     .pill {
-      font-family: 'IBM Plex Sans', sans-serif;
-      font-size: 14px;
-      font-weight: 500;
+      font: 500 14px 'IBM Plex Sans', sans-serif;
       color: var(--text);
       background: var(--panel);
       border: 1px solid var(--panel-border);
@@ -202,10 +196,7 @@
       transition: border-color 0.2s, background 0.2s, transform 0.15s;
     }
 
-    .pill:hover {
-      border-color: var(--cyan);
-      transform: translateY(-1px);
-    }
+    .pill:hover { border-color: var(--cyan); transform: translateY(-1px); }
 
     .pill.active {
       background: linear-gradient(180deg, rgba(255, 59, 92, 0.16), rgba(255, 59, 92, 0.06));
@@ -220,24 +211,19 @@
       margin-left: 6px;
     }
 
-    .pill.active .gene {
-      color: rgba(255, 255, 255, 0.65);
-    }
+    .pill.active .gene { color: rgba(255, 255, 255, 0.65); }
 
+    /* ---------- stage / radar ---------- */
     .stage {
       position: relative;
       background: var(--panel);
       border: 1px solid var(--panel-border);
-      border-radius: 18px;
-      padding: 0;
+      border-radius: var(--radius-lg);
       overflow: hidden;
+      min-height: 240px;
     }
 
-    canvas {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
+    canvas { display: block; width: 100%; height: auto; }
 
     .legend {
       position: absolute;
@@ -250,11 +236,7 @@
       color: var(--muted);
     }
 
-    .legend span {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
+    .legend span { display: flex; align-items: center; gap: 6px; }
 
     .dot-swatch {
       width: 8px;
@@ -272,22 +254,23 @@
       font-family: 'IBM Plex Mono', monospace;
     }
 
+    /* ---------- info card ---------- */
     .card {
       position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
+      inset: auto 0 0 0;
       background: linear-gradient(180deg, rgba(14, 21, 38, 0.4), rgba(7, 11, 20, 0.97) 30%);
       backdrop-filter: blur(6px);
       padding: 22px 26px 24px;
+      max-height: 88%;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior: contain;
       transform: translateY(100%);
       transition: transform 0.4s cubic-bezier(.22, .9, .3, 1);
       border-top: 1px solid var(--panel-border);
     }
 
-    .card.open {
-      transform: translateY(0);
-    }
+    .card.open { transform: translateY(0); }
 
     .card-top {
       display: flex;
@@ -327,13 +310,14 @@
       font-size: 13.5px;
       color: var(--cyan);
       font-weight: 500;
+      margin-bottom: 14px;
     }
 
     .close-btn {
       background: none;
       border: 1px solid var(--panel-border);
       color: var(--muted);
-      border-radius: 8px;
+      border-radius: var(--radius-sm);
       width: 30px;
       height: 30px;
       cursor: pointer;
@@ -342,10 +326,7 @@
       flex-shrink: 0;
     }
 
-    .close-btn:hover {
-      color: var(--text);
-      border-color: var(--muted);
-    }
+    .close-btn:hover { color: var(--text); border-color: var(--muted); }
 
     .card-body {
       display: grid;
@@ -376,11 +357,7 @@
       line-height: 1.1;
     }
 
-    .stat-label {
-      font-size: 12px;
-      color: var(--muted);
-      line-height: 1.4;
-    }
+    .stat-label { font-size: 12px; color: var(--muted); line-height: 1.4; }
 
     .real-case {
       font-size: 12px;
@@ -392,22 +369,35 @@
     }
 
     @media (max-width:680px) {
-      .card-body {
-        grid-template-columns: 1fr;
-      }
-
+      .card-body { grid-template-columns: 1fr; }
       .stat-block {
         border-left: none;
         border-top: 1px solid var(--panel-border);
         padding-left: 0;
         padding-top: 14px;
         flex-direction: row;
-        gap: 24px;
+        flex-wrap: wrap;
+        gap: 20px 24px;
       }
+      .legend { display: none; }
+      .card { padding: 18px 18px 20px; }
+      .card-title h2 { font-size: 19px; }
+    }
 
-      .legend {
-        display: none;
-      }
+    @media (max-width:480px) {
+      .mode-toggle { width: 100%; }
+      .mode-btn { flex: 1; text-align: center; }
+      .sim-row { flex-direction: column; align-items: stretch; }
+      .sim-row .field, .sim-run { flex: 1 1 auto; width: 100%; }
+      .pill { padding: 8px 13px; font-size: 13px; }
+      .card-top { gap: 10px; }
+      .close-btn { margin-left: auto; }
+      .stat-block { flex-direction: column; }
+    }
+
+    @media (max-width:360px) {
+      h1 { font-size: 24px; }
+      .subtitle { font-size: 13.5px; }
     }
   </style>
 </head>
@@ -418,8 +408,8 @@
     <header>
       <div class="eyebrow">Pharmacogenomic risk map</div>
       <h1>Same drug. Different genome. Different outcome.</h1>
-      <p class="subtitle">Most drug safety data comes from a narrow slice of the world's genomes. Select a medication to
-        see which populations carry documented, elevated risk — and why.</p>
+      <p class="subtitle">Most drug safety data comes from a narrow slice of the world's genomes. Select a medication
+        to see which populations carry documented, elevated risk — and why.</p>
     </header>
 
     <div class="mode-toggle" id="modeToggle">
@@ -431,8 +421,8 @@
 
     <div class="simulate-panel" id="simulatePanel">
       <div class="sim-row">
-        <input type="text" id="simDrugName" placeholder="New drug candidate name (e.g. Compound X-104)" maxlength="60">
-        <select id="simGene"></select>
+        <input class="field" type="text" id="simDrugName" placeholder="New drug candidate name (e.g. Compound X-104)" maxlength="60">
+        <select class="field" id="simGene"></select>
         <button class="sim-run" id="simRun">Run pre-trial screen</button>
       </div>
       <p class="sim-hint">Not a real drug — enter any name and pick the metabolic pathway it shares with a known
@@ -446,7 +436,7 @@
         <span><i class="dot-swatch" style="background:#FF3B5C"></i>elevated documented risk</span>
       </div>
       <canvas id="radar"></canvas>
-      <div class="hint" id="hintText">select a medication above</div>
+      <div class="hint" id="hintText">loading world map…</div>
       <div class="card" id="infoCard">
         <div class="card-top">
           <div class="card-title">
@@ -454,10 +444,9 @@
             <span class="gene-tag" id="cardGene">GENE</span>
             <span class="predicted-badge" id="predictedBadge" style="display:none;">PREDICTED — pre-trial signal</span>
           </div>
-          <button class="close-btn" id="closeCard">✕</button>
+          <button class="close-btn" id="closeCard" aria-label="Close">✕</button>
         </div>
         <div class="region-tag" id="cardRegion">Region</div>
-        <br>
         <div class="card-body">
           <p class="explanation" id="cardExplanation">Explanation text.</p>
           <div class="stat-block">
@@ -472,17 +461,50 @@
     </div>
   </div>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
   <script>
-    // ---------- Data ----------
+    'use strict';
+
+    // ============================================================
+    // Data — population clusters, gene pathways, documented cases
+    // ============================================================
+
+    // Each cluster now maps to real countries (matched against the world-atlas
+    // 110m dataset's `properties.name` values) instead of an abstract x/y blob.
     const CLUSTERS = {
-      americas: { name: 'Americas (African-ancestry populations)', x: 0.190, y: 0.430 },
-      africa: { name: 'North Africa & Ethiopia', x: 0.490, y: 0.500 },
-      europe: { name: 'Europe (trial reference)', x: 0.460, y: 0.250 },
-      swasia: { name: 'Southwest Asia', x: 0.575, y: 0.390 },
-      southasia: { name: 'South Asia (India)', x: 0.645, y: 0.480 },
-      hanchina: { name: 'Han Chinese & SE Asia', x: 0.745, y: 0.400 },
-      eastasia: { name: 'East Asia (Japan & Korea)', x: 0.800, y: 0.250 },
-      pacific: { name: 'Pacific Islands', x: 0.905, y: 0.560 }
+      americas: {
+        name: 'Americas (African-ancestry populations)',
+        countries: ['United States of America', 'Brazil', 'Haiti', 'Jamaica', 'Dominican Rep.', 'Colombia']
+      },
+      africa: {
+        name: 'North Africa & Ethiopia',
+        countries: ['Egypt', 'Ethiopia', 'Sudan', 'Morocco', 'Algeria', 'Tunisia', 'Libya']
+      },
+      europe: {
+        name: 'Europe (trial reference)',
+        countries: ['Germany', 'France', 'United Kingdom', 'Spain', 'Italy', 'Poland', 'Netherlands', 'Sweden']
+      },
+      swasia: {
+        name: 'Southwest Asia',
+        countries: ['Saudi Arabia', 'United Arab Emirates', 'Iraq', 'Iran', 'Turkey', 'Jordan', 'Israel', 'Yemen']
+      },
+      southasia: {
+        name: 'South Asia (India)',
+        countries: ['India', 'Pakistan', 'Bangladesh', 'Sri Lanka', 'Nepal']
+      },
+      hanchina: {
+        name: 'Han Chinese & SE Asia',
+        countries: ['China', 'Vietnam', 'Thailand', 'Malaysia', 'Philippines', 'Indonesia']
+      },
+      eastasia: {
+        name: 'East Asia (Japan & Korea)',
+        countries: ['Japan', 'South Korea', 'North Korea', 'Taiwan']
+      },
+      pacific: {
+        name: 'Pacific Islands',
+        countries: ['Papua New Guinea', 'Fiji', 'Vanuatu', 'Solomon Is.']
+      }
     };
 
     // Mirrors genes.json on the backend — lets the simulator highlight clusters
@@ -548,235 +570,231 @@
       }
     ];
 
-    // ---------- Canvas setup ----------
-    const canvas = document.getElementById('radar');
-    const ctx = canvas.getContext('2d');
-    let W, H, DPR;
-
-    function resize() {
-      DPR = window.devicePixelRatio || 1;
-      const rect = canvas.parentElement.getBoundingClientRect();
-      W = rect.width;
-      H = W * 0.58;
-      canvas.style.height = H + 'px';
-      canvas.width = W * DPR;
-      canvas.height = H * DPR;
-      ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
-    }
-
-    // seeded random for stable dot layout
-    function mulberry32(seed) {
-      return function () {
-        seed |= 0; seed = (seed + 0x6D2B79F5) | 0;
-        let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
-        t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
-        return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-      };
-    }
-
-    const clusterDots = {};
-    (function buildDots() {
-      let seed = 7;
-      Object.keys(CLUSTERS).forEach((key, idx) => {
-        const rnd = mulberry32(seed + idx * 101);
-        const n = 46;
-        const pts = [];
-        for (let i = 0; i < n; i++) {
-          const angle = rnd() * Math.PI * 2;
-          const r = Math.sqrt(rnd()) * 46;
-          pts.push({ dx: Math.cos(angle) * r, dy: Math.sin(angle) * r * 0.7, r: 1.6 + rnd() * 1.6, phase: rnd() * Math.PI * 2 });
-        }
-        clusterDots[key] = pts;
-      });
-    })();
-
-    let activeDrug = null;
-    let activeClusters = [];
-    let t0 = performance.now();
-
-    function activeClusterSet() {
-      return new Set(activeClusters);
-    }
-
-    function draw(now) {
-      const time = (now - t0) / 1000;
-      ctx.clearRect(0, 0, W, H);
-
-      // faint grid
-      ctx.strokeStyle = 'rgba(255,255,255,0.035)';
-      ctx.lineWidth = 1;
-      for (let x = 0; x < W; x += 40) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke(); }
-      for (let y = 0; y < H; y += 40) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke(); }
-
-      const activeSet = activeClusterSet();
-
-      Object.entries(CLUSTERS).forEach(([key, c]) => {
-        const cx = c.x * W;
-        const cy = c.y * H;
-        const isActive = activeSet.has(key);
-        const pulse = isActive ? (0.5 + 0.5 * Math.sin(time * 2.4)) : 0;
-
-        // cluster glow
-        if (isActive) {
-          const grad = ctx.createRadialGradient(cx, cy, 0, cx, cy, 70 + pulse * 14);
-          grad.addColorStop(0, 'rgba(255,59,92,' + (0.35 + pulse * 0.15) + ')');
-          grad.addColorStop(1, 'rgba(255,59,92,0)');
-          ctx.fillStyle = grad;
-          ctx.beginPath();
-          ctx.arc(cx, cy, 70 + pulse * 14, 0, Math.PI * 2);
-          ctx.fill();
-        }
-
-        // dots
-        clusterDots[key].forEach(p => {
-          const dotPulse = isActive ? (0.5 + 0.5 * Math.sin(time * 3 + p.phase)) : 0;
-          const x = cx + p.dx;
-          const y = cy + p.dy;
-          const radius = p.r + (isActive ? dotPulse * 0.9 : 0);
-          ctx.beginPath();
-          ctx.arc(x, y, radius, 0, Math.PI * 2);
-          if (isActive) {
-            ctx.fillStyle = `rgba(255, ${59 + dotPulse * 40}, ${92 - dotPulse * 20}, ${0.75 + dotPulse * 0.25})`;
-          } else {
-            ctx.fillStyle = 'rgba(63,208,201,0.55)';
-          }
-          ctx.fill();
-        });
-
-        // label
-        ctx.font = "500 11.5px 'IBM Plex Mono', monospace";
-        ctx.fillStyle = isActive ? 'rgba(255,255,255,0.9)' : 'rgba(124,138,173,0.75)';
-        ctx.textAlign = 'center';
-        ctx.fillText(c.name, cx, cy + 66);
-      });
-
-      requestAnimationFrame(draw);
-    }
-
-    resize();
-    requestAnimationFrame(draw);
-    window.addEventListener('resize', resize);
-
-    // ---------- Controls ----------
-    const controlsEl = document.getElementById('drugControls');
-    DRUGS.forEach(drug => {
-      const btn = document.createElement('button');
-      btn.className = 'pill';
-      btn.innerHTML = drug.name + '<span class="gene">' + drug.gene + '</span>';
-      btn.addEventListener('click', () => selectDrug(drug, btn));
-      controlsEl.appendChild(btn);
-    });
-
-    const infoCard = document.getElementById('infoCard');
-    const hintText = document.getElementById('hintText');
-    const explanationEl = document.getElementById('cardExplanation');
-
     // Point this at your backend once it's running. Leave as-is and the app
     // just uses the hardcoded explanations above — nothing breaks either way.
     const API_BASE = 'http://localhost:8000';
     const API_TIMEOUT_MS = 4000;
 
-    async function fetchLiveExplanation(drugId) {
-      try {
-        const controller = new AbortController();
-        const t = setTimeout(() => controller.abort(), API_TIMEOUT_MS);
-        const res = await fetch(API_BASE + '/explain', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ drug: drugId }),
-          signal: controller.signal
-        });
-        clearTimeout(t);
-        if (!res.ok) return null;
-        const data = await res.json();
-        return data.explanation || null;
-      } catch (err) {
-        return null; // any failure -> caller falls back to the static text, silently
-      }
-    }
+    // ============================================================
+    // Radar — canvas render loop
+    // ============================================================
 
-    function selectDrug(drug, btn) {
-      document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
-      if (activeDrug && activeDrug.id === drug.id) {
-        activeDrug = null;
-        activeClusters = [];
-        infoCard.classList.remove('open');
-        hintText.style.display = 'block';
-        return;
-      }
-      btn.classList.add('active');
-      activeDrug = drug;
-      activeClusters = drug.clusters;
-      hintText.style.display = 'none';
+    const WORLD_ATLAS_URL = 'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json';
 
-      document.getElementById('predictedBadge').style.display = 'none';
-      document.getElementById('cardDrug').textContent = drug.name;
-      document.getElementById('cardGene').textContent = drug.gene + ' — ' + drug.variant;
-      document.getElementById('cardRegion').textContent = 'Affected region: ' + drug.region;
-      document.getElementById('cardStat').textContent = drug.stat;
-      document.getElementById('cardStatLabel').textContent = drug.statLabel;
-      document.getElementById('cardCase').textContent = drug.caseRef;
+    const Radar = (() => {
+      const canvas = document.getElementById('radar');
+      const ctx = canvas.getContext('2d');
+      const baseCanvas = document.createElement('canvas'); // static map layer, redrawn once per resize
+      const baseCtx = baseCanvas.getContext('2d');
 
-      // Show the static explanation immediately so the card never looks empty,
-      // then swap it in place if the live call comes back before the user moves on.
-      explanationEl.textContent = drug.explanation;
-      infoCard.classList.add('open');
+      let W = 0, H = 0, DPR = 1;
+      let ready = false;
+      let countries = [];          // GeoJSON features, one per country
+      let basePath, overlayPath;   // d3 geoPath generators sharing one projection
+      let highlightNames = new Set();
+      let startedAt = performance.now();
 
-      const requestedDrug = drug.id;
-      fetchLiveExplanation(drug.id).then(liveText => {
-        if (liveText && activeDrug && activeDrug.id === requestedDrug) {
-          explanationEl.textContent = liveText;
+      async function load() {
+        try {
+          const topo = await fetch(WORLD_ATLAS_URL).then(r => r.json());
+          const geo = topojson.feature(topo, topo.objects.countries);
+          countries = geo.features
+            .filter(f => f.properties.name !== 'Antarctica')
+            .map((f, i) => { f.__phase = (i * 0.37) % (Math.PI * 2); return f; });
+          ready = true;
+          resize();
+        } catch (err) {
+          console.error('world map failed to load', err);
+          document.getElementById('hintText').textContent = 'world map failed to load — check your connection';
         }
-      });
-    }
+      }
 
-    document.getElementById('closeCard').addEventListener('click', () => {
-      activeDrug = null;
-      activeClusters = [];
-      infoCard.classList.remove('open');
-      hintText.style.display = 'block';
-      document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+      function resize() {
+        DPR = window.devicePixelRatio || 1;
+        const rect = canvas.parentElement.getBoundingClientRect();
+        W = rect.width;
+        // narrow viewports get a taller ratio so the map stays legible instead of squashed
+        const ratio = W < 480 ? 0.95 : W < 680 ? 0.78 : 0.58;
+        H = Math.max(W * ratio, 220);
+
+        canvas.style.height = H + 'px';
+        canvas.width = W * DPR;
+        canvas.height = H * DPR;
+        baseCanvas.width = W * DPR;
+        baseCanvas.height = H * DPR;
+        ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+        baseCtx.setTransform(DPR, 0, 0, DPR, 0, 0);
+
+        if (!ready) return;
+
+        const projection = d3.geoNaturalEarth1()
+          .fitExtent([[14, 14], [W - 14, H - 14]], { type: 'FeatureCollection', features: countries });
+        basePath = d3.geoPath(projection).context(baseCtx);
+        overlayPath = d3.geoPath(projection).context(ctx);
+
+        countries.forEach(f => {
+          const c = basePath.centroid(f);
+          f.__cx = c[0]; f.__cy = c[1];
+        });
+
+        drawBase();
+      }
+
+      function drawBase() {
+        baseCtx.clearRect(0, 0, W, H);
+
+        // projection frame (the map's outer boundary)
+        baseCtx.beginPath();
+        basePath({ type: 'Sphere' });
+        baseCtx.fillStyle = 'rgba(255,255,255,0.018)';
+        baseCtx.fill();
+        baseCtx.strokeStyle = 'rgba(29,43,69,0.7)';
+        baseCtx.lineWidth = 1;
+        baseCtx.stroke();
+
+        // graticule
+        baseCtx.beginPath();
+        basePath(d3.geoGraticule10());
+        baseCtx.strokeStyle = 'rgba(255,255,255,0.035)';
+        baseCtx.lineWidth = 1;
+        baseCtx.stroke();
+
+        // one dot per country, at its geographic centroid
+        countries.forEach(f => {
+          baseCtx.beginPath();
+          basePath(f);
+          baseCtx.fillStyle = 'rgba(63,208,201,0.055)';
+          baseCtx.fill();
+          baseCtx.strokeStyle = 'rgba(29,43,69,0.9)';
+          baseCtx.lineWidth = 0.6;
+          baseCtx.stroke();
+
+          baseCtx.beginPath();
+          baseCtx.arc(f.__cx, f.__cy, 1.6, 0, Math.PI * 2);
+          baseCtx.fillStyle = 'rgba(63,208,201,0.6)';
+          baseCtx.fill();
+        });
+      }
+
+      function frame(now) {
+        const time = (now - startedAt) / 1000;
+
+        // blit the static base layer at native pixel resolution
+        ctx.setTransform(1, 0, 0, 1, 0, 0);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        if (ready) ctx.drawImage(baseCanvas, 0, 0, canvas.width, canvas.height);
+        ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+
+        // mark the selected countries in red, pulsing, on top of the base layer
+        if (ready && highlightNames.size) {
+          countries.forEach(f => {
+            if (!highlightNames.has(f.properties.name)) return;
+            const pulse = 0.5 + 0.5 * Math.sin(time * 2.4 + f.__phase);
+
+            const glowRadius = 22 + pulse * 8;
+            const grad = ctx.createRadialGradient(f.__cx, f.__cy, 0, f.__cx, f.__cy, glowRadius);
+            grad.addColorStop(0, `rgba(255,59,92,${0.5 + pulse * 0.2})`);
+            grad.addColorStop(1, 'rgba(255,59,92,0)');
+            ctx.fillStyle = grad;
+            ctx.beginPath();
+            ctx.arc(f.__cx, f.__cy, glowRadius, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.beginPath();
+            overlayPath(f);
+            ctx.fillStyle = `rgba(255,59,92,${0.16 + pulse * 0.08})`;
+            ctx.fill();
+            ctx.strokeStyle = 'rgba(255,59,92,0.9)';
+            ctx.lineWidth = 1.1;
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.arc(f.__cx, f.__cy, 2.6 + pulse * 1.3, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(255, ${59 + pulse * 40}, ${92 - pulse * 20}, 0.95)`;
+            ctx.fill();
+          });
+        }
+
+        requestAnimationFrame(frame);
+      }
+
+      window.addEventListener('resize', resize);
+      requestAnimationFrame(frame);
+      const loaded = load();
+
+      return {
+        ready: () => loaded,
+        highlight(clusterKeys) {
+          const names = new Set();
+          (clusterKeys || []).forEach(key => {
+            const cluster = CLUSTERS[key];
+            if (cluster) cluster.countries.forEach(n => names.add(n));
+          });
+          highlightNames = names;
+        }
+      };
+    })();
+
+    Radar.ready().then(() => {
+      document.getElementById('hintText').textContent = 'select a medication above';
     });
 
-    // ---------- Mode toggle ----------
-    const modeToggle = document.getElementById('modeToggle');
-    const simulatePanel = document.getElementById('simulatePanel');
-    modeToggle.querySelectorAll('.mode-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        modeToggle.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const mode = btn.dataset.mode;
-        controlsEl.style.display = mode === 'known' ? 'flex' : 'none';
-        simulatePanel.classList.toggle('open', mode === 'simulate');
-        // reset the map when switching modes
-        activeDrug = null;
-        activeClusters = [];
-        infoCard.classList.remove('open');
+    // ============================================================
+    // Info card
+    // ============================================================
+
+    const Card = (() => {
+      const el = document.getElementById('infoCard');
+      const hintText = document.getElementById('hintText');
+      const explanationEl = document.getElementById('cardExplanation');
+      const badgeEl = document.getElementById('predictedBadge');
+      const drugEl = document.getElementById('cardDrug');
+      const geneEl = document.getElementById('cardGene');
+      const regionEl = document.getElementById('cardRegion');
+      const statEl = document.getElementById('cardStat');
+      const statLabelEl = document.getElementById('cardStatLabel');
+      const caseEl = document.getElementById('cardCase');
+
+      function show({ title, gene, region, stat, statLabel, caseRef, explanation, predicted }) {
+        badgeEl.style.display = predicted ? 'inline-block' : 'none';
+        drugEl.textContent = title;
+        geneEl.textContent = gene;
+        regionEl.textContent = region;
+        statEl.textContent = stat;
+        statLabelEl.textContent = statLabel;
+        caseEl.textContent = caseRef;
+        explanationEl.textContent = explanation;
+        el.classList.add('open');
+        hintText.style.display = 'none';
+      }
+
+      function setExplanation(text) { explanationEl.textContent = text; }
+
+      function close() {
+        el.classList.remove('open');
         hintText.style.display = 'block';
-        document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
-      });
-    });
+      }
 
-    // ---------- Simulator ----------
-    const simGeneSelect = document.getElementById('simGene');
-    Object.entries(GENES).forEach(([key, g]) => {
-      const opt = document.createElement('option');
-      opt.value = key;
-      opt.textContent = g.label;
-      simGeneSelect.appendChild(opt);
-    });
+      document.getElementById('closeCard').addEventListener('click', () => App.reset());
 
-    async function fetchPrediction(drugName, geneKey) {
+      return { show, setExplanation, close };
+    })();
+
+    // ============================================================
+    // Backend calls — fail silently, static content always wins first
+    // ============================================================
+
+    async function postJSON(path, body) {
       try {
         const controller = new AbortController();
-        const t = setTimeout(() => controller.abort(), API_TIMEOUT_MS);
-        const res = await fetch(API_BASE + '/predict', {
+        const timer = setTimeout(() => controller.abort(), API_TIMEOUT_MS);
+        const res = await fetch(API_BASE + path, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ drug_name: drugName, gene: geneKey }),
+          body: JSON.stringify(body),
           signal: controller.signal
         });
-        clearTimeout(t);
+        clearTimeout(timer);
         if (!res.ok) return null;
         return await res.json();
       } catch (err) {
@@ -784,40 +802,134 @@
       }
     }
 
-    function staticPrediction(drugName, geneKey, geneData) {
-      return `${drugName} shares its metabolic pathway (${geneData.label}) with a drug already documented to carry elevated risk in this population. Based on that precedent, this population should be prioritized for safety screening before trials begin.`;
-    }
+    // ============================================================
+    // App — drug pills, mode toggle, simulator
+    // ============================================================
 
-    document.getElementById('simRun').addEventListener('click', async () => {
-      const drugName = document.getElementById('simDrugName').value.trim() || 'Unnamed candidate';
-      const geneKey = simGeneSelect.value;
-      const geneData = GENES[geneKey];
-      if (!geneData) return;
+    const App = (() => {
+      let selectedDrugId = null;
 
-      activeDrug = null;
-      activeClusters = geneData.clusters;
-      hintText.style.display = 'none';
+      const controlsEl = document.getElementById('drugControls');
+      const pillsById = {};
 
-      document.getElementById('predictedBadge').style.display = 'inline-block';
-      document.getElementById('cardDrug').textContent = drugName;
-      document.getElementById('cardGene').textContent = geneKey.replace('_', ' ');
-      document.getElementById('cardRegion').textContent = 'Predicted at-risk region: ' + (CLUSTERS[geneData.clusters[0]] ? geneData.clusters.map(c => CLUSTERS[c].name).join(' & ') : '');
-      document.getElementById('cardStat').textContent = '—';
-      document.getElementById('cardStatLabel').textContent = 'see explanation for the documented precedent';
-      document.getElementById('cardCase').textContent = 'This is a predicted signal for pre-trial screening, based on a real documented case on the same metabolic pathway — not a confirmed outcome for this specific candidate.';
-      explanationEl.textContent = 'Running pre-trial screen…';
-      infoCard.classList.add('open');
+      DRUGS.forEach(drug => {
+        const btn = document.createElement('button');
+        btn.className = 'pill';
+        btn.innerHTML = `${drug.name}<span class="gene">${drug.gene}</span>`;
+        btn.addEventListener('click', () => toggleDrug(drug));
+        controlsEl.appendChild(btn);
+        pillsById[drug.id] = btn;
+      });
 
-      const result = await fetchPrediction(drugName, geneKey);
-      if (result && result.explanation) {
-        explanationEl.textContent = result.explanation;
-        if (result.region) {
-          document.getElementById('cardRegion').textContent = 'Predicted at-risk region: ' + result.region;
-        }
-      } else {
-        explanationEl.textContent = staticPrediction(drugName, geneKey, geneData);
+      function reset() {
+        selectedDrugId = null;
+        Radar.highlight([]);
+        Card.close();
+        Object.values(pillsById).forEach(p => p.classList.remove('active'));
       }
-    });
+
+      function toggleDrug(drug) {
+        if (selectedDrugId === drug.id) { reset(); return; }
+
+        selectedDrugId = drug.id;
+        Object.values(pillsById).forEach(p => p.classList.remove('active'));
+        pillsById[drug.id].classList.add('active');
+        Radar.highlight(drug.clusters);
+
+        Card.show({
+          title: drug.name,
+          gene: `${drug.gene} — ${drug.variant}`,
+          region: `Affected region: ${drug.region}`,
+          stat: drug.stat,
+          statLabel: drug.statLabel,
+          caseRef: drug.caseRef,
+          explanation: drug.explanation,
+          predicted: false
+        });
+
+        // If a live backend is running, swap in its explanation once it lands —
+        // but only if the user hasn't already moved on to something else.
+        postJSON('/explain', { drug: drug.id }).then(result => {
+          if (result && result.explanation && selectedDrugId === drug.id) {
+            Card.setExplanation(result.explanation);
+          }
+        });
+      }
+
+      return { reset, toggleDrug };
+    })();
+
+    // ============================================================
+    // Mode toggle
+    // ============================================================
+
+    (() => {
+      const modeToggle = document.getElementById('modeToggle');
+      const controlsEl = document.getElementById('drugControls');
+      const simulatePanel = document.getElementById('simulatePanel');
+
+      modeToggle.querySelectorAll('.mode-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          modeToggle.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const mode = btn.dataset.mode;
+          controlsEl.style.display = mode === 'known' ? 'flex' : 'none';
+          simulatePanel.classList.toggle('open', mode === 'simulate');
+          App.reset();
+        });
+      });
+    })();
+
+    // ============================================================
+    // Simulator — pre-trial screening for a hypothetical candidate
+    // ============================================================
+
+    (() => {
+      const geneSelect = document.getElementById('simGene');
+      Object.entries(GENES).forEach(([key, g]) => {
+        const opt = document.createElement('option');
+        opt.value = key;
+        opt.textContent = g.label;
+        geneSelect.appendChild(opt);
+      });
+
+      function staticPrediction(drugName, geneData) {
+        return `${drugName} shares its metabolic pathway (${geneData.label}) with a drug already documented to ` +
+          `carry elevated risk in this population. Based on that precedent, this population should be prioritized ` +
+          `for safety screening before trials begin.`;
+      }
+
+      document.getElementById('simRun').addEventListener('click', async () => {
+        const drugName = document.getElementById('simDrugName').value.trim() || 'Unnamed candidate';
+        const geneKey = geneSelect.value;
+        const geneData = GENES[geneKey];
+        if (!geneData) return;
+
+        Radar.highlight(geneData.clusters);
+        const regionNames = geneData.clusters.map(c => CLUSTERS[c].name).join(' & ');
+
+        Card.show({
+          title: drugName,
+          gene: geneKey.replace('_', ' '),
+          region: `Predicted at-risk region: ${regionNames}`,
+          stat: '—',
+          statLabel: 'see explanation for the documented precedent',
+          caseRef: 'This is a predicted signal for pre-trial screening, based on a real documented case on the same metabolic pathway — not a confirmed outcome for this specific candidate.',
+          explanation: 'Running pre-trial screen…',
+          predicted: true
+        });
+
+        const result = await postJSON('/predict', { drug_name: drugName, gene: geneKey });
+        if (result && result.explanation) {
+          Card.setExplanation(result.explanation);
+          if (result.region) {
+            document.getElementById('cardRegion').textContent = `Predicted at-risk region: ${result.region}`;
+          }
+        } else {
+          Card.setExplanation(staticPrediction(drugName, geneData));
+        }
+      });
+    })();
   </script>
 </body>
 
