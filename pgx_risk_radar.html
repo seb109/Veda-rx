@@ -34,10 +34,67 @@
       overflow-x: hidden;
     }
 
+    html { scroll-behavior: smooth; }
+
     body {
       background-image:
         radial-gradient(circle at 15% 10%, rgba(63, 208, 201, 0.06), transparent 40%),
         radial-gradient(circle at 85% 85%, rgba(255, 59, 92, 0.05), transparent 45%);
+    }
+
+    /* ---------- top menu ---------- */
+    .topnav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 16px 24px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: baseline;
+      gap: 3px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 17px;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .brand .accent { color: var(--cyan); }
+
+    .topnav-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12.5px;
+      color: var(--muted);
+      text-decoration: none;
+      background: var(--panel);
+      border: 1px solid var(--panel-border);
+      border-radius: 999px;
+      padding: 7px 14px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .topnav-link:hover { border-color: var(--cyan); color: var(--cyan); }
+
+    .topnav-link .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--red);
+      flex-shrink: 0;
+    }
+
+    @media (max-width:480px) {
+      .topnav { padding: 14px 16px 0; }
+      .topnav-link { font-size: 11.5px; padding: 7px 11px; }
     }
 
     .app {
@@ -399,10 +456,142 @@
       h1 { font-size: 24px; }
       .subtitle { font-size: 13.5px; }
     }
+
+    /* ---------- press clips ---------- */
+    .press-section { margin-top: 44px; scroll-margin-top: 20px; }
+
+    .press-head { max-width: 640px; margin-bottom: 20px; }
+
+    .press-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: clamp(19px, 2.6vw, 24px);
+      margin: 8px 0 8px;
+      color: #fff;
+      letter-spacing: -0.005em;
+    }
+
+    .press-sub {
+      color: var(--muted);
+      font-size: 13.5px;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .press-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    @media (max-width:900px) {
+      .press-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    .press-card {
+      display: flex;
+      flex-direction: column;
+      background: var(--panel);
+      border: 1px solid var(--panel-border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.2s, transform 0.15s;
+    }
+
+    .press-card:hover { border-color: var(--cyan); transform: translateY(-2px); }
+
+    .press-thumb {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      background: #050810;
+    }
+
+    .press-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .press-outlet {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10.5px;
+      letter-spacing: 0.03em;
+      color: var(--text);
+      background: rgba(7, 11, 20, 0.78);
+      backdrop-filter: blur(3px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 6px;
+      padding: 3px 8px;
+    }
+
+    .press-drug-tag {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10.5px;
+      color: var(--red);
+      background: rgba(255, 59, 92, 0.16);
+      border: 1px solid rgba(255, 59, 92, 0.4);
+      border-radius: 6px;
+      padding: 3px 8px;
+    }
+
+    .press-body {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 14px 16px 16px;
+      flex: 1;
+    }
+
+    .press-headline {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.35;
+      color: #fff;
+      margin: 0;
+    }
+
+    .press-desc {
+      font-size: 12.5px;
+      line-height: 1.55;
+      color: var(--muted);
+      margin: 0;
+      flex: 1;
+    }
+
+    .press-read {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11.5px;
+      color: var(--cyan);
+      margin-top: 2px;
+    }
+
+    .press-card:hover .press-read { color: #fff; }
+
+    @media (max-width:480px) {
+      .press-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 
-<body>
+<body id="top">
+
+  <nav class="topnav">
+    <a class="brand" href="#top">Veda<span class="accent">-Rx</span></a>
+    <a class="topnav-link" href="#pressSection"><i class="dot"></i>Supported articles</a>
+  </nav>
 
   <div class="app">
     <header>
@@ -459,6 +648,16 @@
         </div>
       </div>
     </div>
+
+    <section class="press-section" id="pressSection">
+      <div class="press-head">
+        <div class="eyebrow">In the press</div>
+        <h2 class="press-title">When the genome gets left out of the trial</h2>
+        <p class="press-sub">Every case above has also been reported outside the journals — in clinical news and
+          health coverage. Each clip below links straight to the original article and photo.</p>
+      </div>
+      <div class="press-grid" id="pressGrid"></div>
+    </section>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
@@ -567,6 +766,59 @@
         explanation: "Slow NAT2 acetylators break down this frontline tuberculosis drug more slowly, letting toxic intermediate metabolites build up in the liver. Indian studies find slow-acetylator status is both common and significantly associated with drug-induced liver injury in TB patients — a real concern given India's TB treatment burden.",
         stat: '~53%', statLabel: 'slow-acetylator genotype frequency in an Indian TB patient cohort (2024 study)',
         caseRef: 'Real case: Indian pharmacogenetic studies (National Medical Journal of India, 2013; Monaldi Archives for Chest Disease, 2024) link slow-acetylator NAT2 genotype to anti-TB drug-induced liver injury.'
+      }
+    ];
+
+    // Real press coverage of the cases above — clinical and health-news outlets,
+    // not journals. Each links out to the original article and its photo.
+    const PRESS_CLIPS = [
+      {
+        drug: 'Codeine',
+        outlet: 'Fox News',
+        headline: 'FDA warns against codeine use in children after tonsillectomy',
+        desc: 'Coverage of the FDA action that followed reports of children — ultrarapid CYP2D6 metabolizers — dying from morphine toxicity after routine post-surgical codeine.',
+        url: 'https://www.foxnews.com/health/fda-warns-against-codeine-use-in-children-after-tonsillectomy',
+        image: 'https://a57.foxnews.com/static.foxnews.com/foxnews.com/content/uploads/2018/09/1024/512/Sick-toddler.jpg'
+      },
+      {
+        drug: 'Carbamazepine',
+        outlet: 'Medscape',
+        headline: 'New Gene Test Reduces Skin Reactions to Carbamazepine',
+        desc: 'Reporting on the Taiwan screening program built after HLA-B*15:02 carriers were found to face a dramatically elevated risk of Stevens-Johnson syndrome on this drug.',
+        url: 'https://www.medscape.com/viewarticle/894875',
+        image: 'https://img.medscape.com/thumbnail_library/ps_180405_carbamazepine_rash_800x600.jpg'
+      },
+      {
+        drug: 'Abacavir',
+        outlet: 'aidsmap',
+        headline: 'Genetic testing can predict who is at risk of abacavir hypersensitivity',
+        desc: "Coverage of the research behind PREDICT-1 — the trial that took HLA-B*57:01 screening from a lab finding to standard practice before this HIV drug is prescribed.",
+        url: 'https://www.aidsmap.com/news/jun-2006/genetic-testing-can-predict-who-risk-abacavir-hypersensitivity',
+        image: 'https://www.aidsmap.com/themes/custom/aidsmap/img/social-card-default.png'
+      },
+      {
+        drug: 'Clopidogrel',
+        outlet: 'UNC Health',
+        headline: 'FDA issues black box warning on clopidogrel (Plavix)',
+        desc: 'A hospital newsroom explainer on why the FDA moved to a boxed warning after CYP2C19 poor metabolizers kept having stents clot despite being "on" this anti-clotting drug.',
+        url: 'https://news.unchealthcare.org/2010/03/fda-black-box-warning-clopidogrel-plavix/',
+        image: 'https://news.unchealthcare.org/wp-content/uploads/sites/1159/2010/03/Plavix-clopidogrel.png'
+      },
+      {
+        drug: 'Warfarin',
+        outlet: 'Medscape',
+        headline: 'Genetics of Warfarin Dosing in African Americans',
+        desc: 'On the genome-wide study that found a dosing variant common in African-ancestry patients — missing from the dosing tables built mostly on European and Asian data.',
+        url: 'https://www.medscape.com/viewarticle/805470',
+        image: 'https://img.medscape.com/thumbnail_library/Social_Facebook_806x806.jpg'
+      },
+      {
+        drug: 'Isoniazid',
+        outlet: 'Medscape',
+        headline: 'NAT2 Gene Predicts TB-associated Drug-Induced Liver Injury',
+        desc: 'On the case for genotyping NAT2 slow acetylators before dosing this frontline TB drug — a status shown to raise liver-injury risk roughly sixfold.',
+        url: 'https://www.medscape.com/viewarticle/nat2-gene-predicts-tb-associated-drug-induced-liver-injury-2024a1000pen',
+        image: 'https://img.medscapestatic.com/vim/live/professional_assets/medscape/thumbnail_library/gty_210825_mycobacterium_tuberculosis_800x450.jpg'
       }
     ];
 
@@ -928,6 +1180,35 @@
         } else {
           Card.setExplanation(staticPrediction(drugName, geneData));
         }
+      });
+    })();
+
+    // ============================================================
+    // Press clips
+    // ============================================================
+
+    (() => {
+      const grid = document.getElementById('pressGrid');
+      PRESS_CLIPS.forEach(clip => {
+        const card = document.createElement('a');
+        card.className = 'press-card';
+        card.href = clip.url;
+        card.target = '_blank';
+        card.rel = 'noopener noreferrer';
+
+        card.innerHTML = `
+          <div class="press-thumb">
+            <img src="${clip.image}" alt="${clip.headline}" loading="lazy" referrerpolicy="no-referrer">
+            <span class="press-outlet">${clip.outlet}</span>
+            <span class="press-drug-tag">${clip.drug}</span>
+          </div>
+          <div class="press-body">
+            <h3 class="press-headline">${clip.headline}</h3>
+            <p class="press-desc">${clip.desc}</p>
+            <span class="press-read">Read the article ↗</span>
+          </div>
+        `;
+        grid.appendChild(card);
       });
     })();
   </script>
