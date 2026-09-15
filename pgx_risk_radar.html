@@ -34,10 +34,67 @@
       overflow-x: hidden;
     }
 
+    html { scroll-behavior: smooth; }
+
     body {
       background-image:
         radial-gradient(circle at 15% 10%, rgba(63, 208, 201, 0.06), transparent 40%),
         radial-gradient(circle at 85% 85%, rgba(255, 59, 92, 0.05), transparent 45%);
+    }
+
+    /* ---------- top menu ---------- */
+    .topnav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 16px 24px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: baseline;
+      gap: 3px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 17px;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .brand .accent { color: var(--cyan); }
+
+    .topnav-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12.5px;
+      color: var(--muted);
+      text-decoration: none;
+      background: var(--panel);
+      border: 1px solid var(--panel-border);
+      border-radius: 999px;
+      padding: 7px 14px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .topnav-link:hover { border-color: var(--cyan); color: var(--cyan); }
+
+    .topnav-link .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--red);
+      flex-shrink: 0;
+    }
+
+    @media (max-width:480px) {
+      .topnav { padding: 14px 16px 0; }
+      .topnav-link { font-size: 11.5px; padding: 7px 11px; }
     }
 
     .app {
@@ -401,7 +458,7 @@
     }
 
     /* ---------- press clips ---------- */
-    .press-section { margin-top: 44px; }
+    .press-section { margin-top: 44px; scroll-margin-top: 20px; }
 
     .press-head { max-width: 640px; margin-bottom: 20px; }
 
@@ -529,7 +586,12 @@
   </style>
 </head>
 
-<body>
+<body id="top">
+
+  <nav class="topnav">
+    <a class="brand" href="#top">Veda<span class="accent">-Rx</span></a>
+    <a class="topnav-link" href="#pressSection"><i class="dot"></i>Supported articles</a>
+  </nav>
 
   <div class="app">
     <header>
@@ -587,7 +649,7 @@
       </div>
     </div>
 
-    <section class="press-section">
+    <section class="press-section" id="pressSection">
       <div class="press-head">
         <div class="eyebrow">In the press</div>
         <h2 class="press-title">When the genome gets left out of the trial</h2>
