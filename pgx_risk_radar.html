@@ -635,6 +635,8 @@
 
     .signal-pop { font-weight: 500; color: var(--text); min-width: 150px; }
 
+    .signal-variant { font-family: 'IBM Plex Mono', monospace; color: var(--muted); font-size: 12px; }
+
     .signal-freq { font-family: 'IBM Plex Mono', monospace; color: var(--cyan); font-size: 12.5px; }
 
     .signal-note { color: var(--muted); font-size: 12px; flex-basis: 100%; line-height: 1.5; }
@@ -994,6 +996,7 @@
       { group: 'CYP2C19', id: 'CYP2C19', label: 'CYP2C19' },
       { group: 'HLA-B', id: 'HLA-B*15:02', label: 'HLA-B*15:02' },
       { group: 'HLA-B', id: 'HLA-B*57:01', label: 'HLA-B*57:01' },
+      { group: 'HLA-B', id: 'HLA-B*58:01', label: 'HLA-B*58:01' },
       { group: 'HLA-A', id: 'HLA-A*31:01', label: 'HLA-A*31:01' }
     ];
 
@@ -1015,7 +1018,8 @@
       { label: 'Codeine', drugName: 'Codeine', mechanism: 'PRODRUG_ACTIVATION', pathway: 'CYP2D6' },
       { label: 'Carbamazepine', drugName: 'Carbamazepine', mechanism: 'IMMUNE_MEDIATED', pathway: 'HLA-B*15:02' },
       { label: 'Clopidogrel', drugName: 'Clopidogrel', mechanism: 'PRODRUG_ACTIVATION', pathway: 'CYP2C19' },
-      { label: 'Abacavir', drugName: 'Abacavir', mechanism: 'IMMUNE_MEDIATED', pathway: 'HLA-B*57:01' }
+      { label: 'Abacavir', drugName: 'Abacavir', mechanism: 'IMMUNE_MEDIATED', pathway: 'HLA-B*57:01' },
+      { label: 'Allopurinol', drugName: 'Allopurinol', mechanism: 'IMMUNE_MEDIATED', pathway: 'HLA-B*58:01' }
     ];
 
     // Presentation-only geographic hint for the existing map, so a v2 result
@@ -1592,12 +1596,42 @@
         return 'evidence-insufficient';
       }
 
+      // Rounds to 2 decimal places (enough to keep a small non-zero allele
+      // frequency, e.g. 0.03%, visibly distinct from 0%) then trims
+      // insignificant trailing zeros — 6.00 -> "6", 0.70 -> "0.7",
+      // 0.03 -> "0.03". Never touches the underlying numeric value, only
+      // its display string.
+      function formatPct(v) {
+        return (v * 100).toFixed(2).replace(/(\.\d*?)0+$/, '$1').replace(/\.$/, '');
+      }
+
       function formatFrequency(sig) {
         if (sig.frequency_min == null && sig.frequency_max == null) return null;
         const unit = sig.unit === 'proportion' ? '%' : (sig.unit || '');
-        const toPct = v => (unit === '%' ? (v * 100).toFixed(1).replace(/\.0$/, '') : v);
+        const toPct = v => (unit === '%' ? formatPct(v) : v);
+        // "reported_maximum" rows (e.g. CPIC's own "frequencies up to 20%"
+        // wording) are a single ceiling estimate, not an observed 0..max
+        // range — render them as the source describes them instead of a
+        // fabricated precise range starting at 0.
+        if (sig.frequency_type === 'reported_maximum') {
+          return `up to ${toPct(sig.frequency_max)}${unit}`;
+        }
         if (sig.frequency_min === sig.frequency_max) return `${toPct(sig.frequency_min)}${unit}`;
         return `${toPct(sig.frequency_min)}–${toPct(sig.frequency_max)}${unit}`;
+      }
+
+      // Presentation only: the resolver already returns matched_gene for
+      // gene-keyed relationships (CYP2D6/CYP2C19 — unchanged, untouched
+      // here). Variant-keyed relationships (the HLA alleles) carry only
+      // matched_variant, so this just reads the gene prefix already present
+      // in that string (e.g. "HLA-B*58:01" -> "HLA-B") — it derives nothing
+      // the API response didn't already state, and invents no clinical fact.
+      function displayMatchedGene(result) {
+        if (result.matched_gene) return result.matched_gene;
+        if (result.matched_variant && result.matched_variant.includes('*')) {
+          return result.matched_variant.split('*')[0];
+        }
+        return '—';
       }
 
       function renderSources(sources) {
@@ -1670,7 +1704,7 @@
         const matchRow = el('div', { class: 'sim-match-row' });
         const matchedGeneSpan = el('span');
         matchedGeneSpan.appendChild(document.createTextNode('Matched gene: '));
-        matchedGeneSpan.appendChild(el('b', { text: result.matched_gene || '—' }));
+        matchedGeneSpan.appendChild(el('b', { text: displayMatchedGene(result) }));
         matchRow.appendChild(matchedGeneSpan);
         if (result.matched_variant) {
           const v = el('span');
@@ -1690,6 +1724,7 @@
           result.population_signals.forEach(sig => {
             const row = el('div', { class: 'signal-row' });
             row.appendChild(el('span', { class: 'signal-pop', text: sig.population }));
+            if (sig.variant) row.appendChild(el('span', { class: 'signal-variant', text: sig.variant }));
             const freq = formatFrequency(sig);
             if (freq) {
               row.appendChild(el('span', { class: 'signal-freq', text: `${freq} (documented frequency, not a probability of harm)` }));
@@ -1712,7 +1747,11 @@
 
         if (result.representation_gaps && result.representation_gaps.length) {
           resultsEl.appendChild(el('div', { class: 'sim-block-title', text: 'Trial representation gap' }));
-          const gapLabels = result.representation_gaps
+          // De-duplicated for display only — a gene like CYP2D6/HLA-B can
+          // carry several distinct source rows (e.g. separate Chinese/
+          // Korean/Japanese allele-frequency rows) for the same population
+          // id; the underlying per-row evidence above is left untouched.
+          const gapLabels = Array.from(new Set(result.representation_gaps))
             .map(id => (SIM_POPULATIONS.find(p => p.id === id) || { label: id }).label);
           resultsEl.appendChild(el('div', { class: 'gap-banner' }, [
             document.createTextNode('Populations with a documented signal not covered by your planned trial regions: ' + gapLabels.join(', ')),
