@@ -882,9 +882,9 @@
     <div class="sim-results" id="simResults"></div>
 
     <div class="stage">
-      <div class="legend">
+      <div class="legend" id="mapLegend">
         <span><i class="dot-swatch" style="background:#3FD0C9"></i>baseline population</span>
-        <span><i class="dot-swatch" style="background:#FF3B5C"></i>elevated documented risk</span>
+        <span><i class="dot-swatch" id="legendSwatch2" style="background:#FF3B5C"></i><span id="legendLabel2">elevated documented risk</span></span>
       </div>
       <canvas id="radar"></canvas>
       <div class="hint" id="hintText">loading world map…</div>
@@ -1043,8 +1043,8 @@
     // population ids into the map's existing cluster vocabulary. If there's
     // nothing to highlight, it clears the map — it never fabricates one.
     // ------------------------------------------------------------------
-    function highlightClustersOnMap(clusterKeys) {
-      Radar.highlight(clusterKeys || []);
+    function highlightClustersOnMap(clusterKeys, variant) {
+      Radar.highlight(clusterKeys || [], variant);
     }
 
     // Presentation-only adapter: backend population_signals -> map cluster
@@ -1185,6 +1185,7 @@
       let countries = [];          // GeoJSON features, one per country
       let basePath, overlayPath;   // d3 geoPath generators sharing one projection
       let highlightNames = new Set();
+      let highlightVariant = 'risk'; // 'risk' (documented, red) or 'population' (simulation frequency evidence, amber)
       let startedAt = performance.now();
 
       async function load() {
@@ -1278,16 +1279,21 @@
         if (ready) ctx.drawImage(baseCanvas, 0, 0, canvas.width, canvas.height);
         ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
 
-        // mark the selected countries in red, pulsing, on top of the base layer
+        // mark the selected countries, pulsing, on top of the base layer.
+        // Documented mode keeps the original red "elevated documented risk"
+        // treatment unchanged; simulation's population-frequency evidence
+        // renders in amber so it is never mistaken for a risk claim.
         if (ready && highlightNames.size) {
+          const isPopulation = highlightVariant === 'population';
+          const [r, g, b] = isPopulation ? [255, 176, 32] : [255, 59, 92];
           countries.forEach(f => {
             if (!highlightNames.has(f.properties.name)) return;
             const pulse = 0.5 + 0.5 * Math.sin(time * 2.4 + f.__phase);
 
             const glowRadius = 22 + pulse * 8;
             const grad = ctx.createRadialGradient(f.__cx, f.__cy, 0, f.__cx, f.__cy, glowRadius);
-            grad.addColorStop(0, `rgba(255,59,92,${0.5 + pulse * 0.2})`);
-            grad.addColorStop(1, 'rgba(255,59,92,0)');
+            grad.addColorStop(0, `rgba(${r},${g},${b},${0.5 + pulse * 0.2})`);
+            grad.addColorStop(1, `rgba(${r},${g},${b},0)`);
             ctx.fillStyle = grad;
             ctx.beginPath();
             ctx.arc(f.__cx, f.__cy, glowRadius, 0, Math.PI * 2);
@@ -1295,15 +1301,17 @@
 
             ctx.beginPath();
             overlayPath(f);
-            ctx.fillStyle = `rgba(255,59,92,${0.16 + pulse * 0.08})`;
+            ctx.fillStyle = `rgba(${r},${g},${b},${0.16 + pulse * 0.08})`;
             ctx.fill();
-            ctx.strokeStyle = 'rgba(255,59,92,0.9)';
+            ctx.strokeStyle = `rgba(${r},${g},${b},0.9)`;
             ctx.lineWidth = 1.1;
             ctx.stroke();
 
             ctx.beginPath();
             ctx.arc(f.__cx, f.__cy, 2.6 + pulse * 1.3, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(255, ${59 + pulse * 40}, ${92 - pulse * 20}, 0.95)`;
+            ctx.fillStyle = isPopulation
+              ? `rgba(255, ${176 + pulse * 30}, ${32 + pulse * 40}, 0.95)`
+              : `rgba(255, ${59 + pulse * 40}, ${92 - pulse * 20}, 0.95)`;
             ctx.fill();
           });
         }
@@ -1317,13 +1325,14 @@
 
       return {
         ready: () => loaded,
-        highlight(clusterKeys) {
+        highlight(clusterKeys, variant) {
           const names = new Set();
           (clusterKeys || []).forEach(key => {
             const cluster = CLUSTERS[key];
             if (cluster) cluster.countries.forEach(n => names.add(n));
           });
           highlightNames = names;
+          highlightVariant = variant === 'population' ? 'population' : 'risk';
         }
       };
     })();
@@ -1459,6 +1468,21 @@
     // Mode toggle
     // ============================================================
 
+    // Legend text/color follows the active mode only — it never reflects
+    // documented-case data or values, so documented mode's legend and
+    // highlighting stay exactly as before.
+    function setLegendForMode(mode) {
+      const swatch = document.getElementById('legendSwatch2');
+      const label = document.getElementById('legendLabel2');
+      if (mode === 'simulate') {
+        swatch.style.background = '#FFB020';
+        label.textContent = 'population frequency evidence';
+      } else {
+        swatch.style.background = '#FF3B5C';
+        label.textContent = 'elevated documented risk';
+      }
+    }
+
     (() => {
       const modeToggle = document.getElementById('modeToggle');
       const controlsEl = document.getElementById('drugControls');
@@ -1473,6 +1497,7 @@
           controlsEl.style.display = mode === 'known' ? 'flex' : 'none';
           simulatePanel.classList.toggle('open', mode === 'simulate');
           if (mode !== 'simulate') simResults.classList.remove('open');
+          setLegendForMode(mode);
           App.reset();
           document.getElementById('hintText').textContent = 'select a medication above';
         });
@@ -1608,7 +1633,7 @@
       // through the shared adapter — an empty result here means "the KB has
       // no frequency data for this pathway," not "let's guess."
       function applyMapHighlight(clusterKeys, noDataReason) {
-        highlightClustersOnMap(clusterKeys);
+        highlightClustersOnMap(clusterKeys, 'population');
         if (clusterKeys && clusterKeys.length) {
           hintText.style.display = 'none';
         } else {
@@ -1656,6 +1681,11 @@
         resultsEl.appendChild(matchRow);
 
         resultsEl.appendChild(el('div', { class: 'sim-block-title', text: 'Population signals' }));
+        resultsEl.appendChild(el('p', {
+          class: 'no-signal-note',
+          text: 'Highlighted regions below reflect population-frequency (allele frequency) evidence for this gene/variant — ' +
+            'frequency is not probability of harm. This is a representation/evidence signal, not a clinical risk determination.'
+        }));
         if (result.population_signals && result.population_signals.length) {
           result.population_signals.forEach(sig => {
             const row = el('div', { class: 'signal-row' });
