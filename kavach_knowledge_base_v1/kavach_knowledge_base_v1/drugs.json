@@ -32,6 +32,14 @@
     "status": "documented_case"
   },
   {
+    "id": "allopurinol",
+    "name": "Allopurinol",
+    "mechanisms": [
+      "IMMUNE_MEDIATED"
+    ],
+    "status": "documented_case"
+  },
+  {
     "id": "warfarin",
     "name": "Warfarin",
     "mechanisms": [

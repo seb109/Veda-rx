@@ -21,6 +21,13 @@
     "documented_effect": "increased_risk_of_abacavir_hypersensitivity"
   },
   {
+    "id": "HLA-B*58:01",
+    "gene": "HLA-B",
+    "type": "allele",
+    "phenotype_model": "carrier_status",
+    "documented_effect": "increased_risk_of_allopurinol_induced_SCAR"
+  },
+  {
     "id": "CYP2D6*1xN",
     "gene": "CYP2D6",
     "type": "allele",

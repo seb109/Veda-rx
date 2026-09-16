@@ -83,6 +83,32 @@
     ]
   },
   {
+    "id": "CPIC-ALLOPURINOL-2013",
+    "organization": "CPIC",
+    "title": "Hershfield MS et al., Clinical Pharmacogenetics Implementation Consortium guidelines for human leukocyte antigen-B genotype and allopurinol dosing",
+    "pmid": "23232549",
+    "url": "https://cpicpgx.org/content/guideline/publication/allopurinol/2013/23232549.pdf",
+    "supports": [
+      "allopurinol",
+      "HLA-B*58:01",
+      "SCAR",
+      "SJS",
+      "TEN"
+    ]
+  },
+  {
+    "id": "CPIC-ALLOPURINOL-SUPP-2015",
+    "organization": "CPIC",
+    "title": "Saito Y et al., Clinical Pharmacogenetics Implementation Consortium (CPIC) Guidelines for Human Leukocyte Antigen B (HLA-B) Genotype and Allopurinol Dosing: 2015 update — Supplemental Material, Supplemental Table S2 (Detailed table of HLA-B*58:01 allele frequencies in defined ethnic groups, compiled from Allele Frequency Net Database)",
+    "pmid": "26094938",
+    "url": "https://files.cpicpgx.org/data/guideline/publication/allopurinol/2015/26094938-supplement.pdf",
+    "supports": [
+      "HLA-B*58:01",
+      "allele_frequency",
+      "population_frequency"
+    ]
+  },
+  {
     "id": "CPIC-API",
     "organization": "CPIC",
     "title": "CPIC API",

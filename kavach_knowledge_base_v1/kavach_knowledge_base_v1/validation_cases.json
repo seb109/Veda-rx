@@ -35,5 +35,15 @@
     "source_ids": [
       "CPIC-ABACAVIR-2014"
     ]
+  },
+  {
+    "id": "VAL-005",
+    "drug": "allopurinol",
+    "expected_relationship": "REL-ALLOPURINOL-HLA-B-5801",
+    "expected_signal": "HLA-B*58:01-associated severe cutaneous adverse reaction (SJS/TEN/DRESS) concern",
+    "source_ids": [
+      "CPIC-ALLOPURINOL-2013",
+      "CPIC-ALLOPURINOL-SUPP-2015"
+    ]
   }
 ]

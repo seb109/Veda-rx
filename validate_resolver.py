@@ -41,6 +41,7 @@ def main() -> int:
         "carbamazepine": "HLA-B*15:02",
         "clopidogrel": "CYP2C19",
         "abacavir": "HLA-B*57:01",
+        "allopurinol": "HLA-B*58:01",
     }
     for case in kb.validation_cases:
         drug = case["drug"]
@@ -226,6 +227,128 @@ def main() -> int:
         "HLA-B*57:01 signals are still their original frequency_types (untouched by allele_frequency work)",
         {s["frequency_type"] for s in abacavir_result.population_signals} == {"reported_estimate", "reported_maximum"},
         f"got {[s['frequency_type'] for s in abacavir_result.population_signals]}",
+    )
+
+    print()
+
+    # --- 7. Allopurinol + HLA-B*58:01 (first controlled KB addition) ---
+
+    # 7a. Positive: documented drug on its own pathway -> DIRECT, via the same
+    # variant-only branch HLA-B*15:02/HLA-B*57:01 already use (no resolver changes).
+    allopurinol_result = resolve_predict(kb, "Allopurinol", "HLA-B*58:01")
+    check(
+        "Allopurinol + HLA-B*58:01 (positive/direct match) -> DIRECT",
+        allopurinol_result.status == STATUS_DIRECT,
+        f"got {allopurinol_result.status}",
+    )
+    check(
+        "Allopurinol + HLA-B*58:01 relationship_id matches the new relationship",
+        allopurinol_result.relationship_id == "REL-ALLOPURINOL-HLA-B-5801",
+        f"got {allopurinol_result.relationship_id}",
+    )
+    check(
+        "Allopurinol + HLA-B*58:01 severity/evidence resolve to CRITICAL priority (strong evidence, not capped)",
+        allopurinol_result.priority == "CRITICAL",
+        f"got {allopurinol_result.priority} (severity {allopurinol_result.severity}, evidence {allopurinol_result.evidence_level})",
+    )
+
+    # 7b. "Negative" carrier status: the resolver has no query dimension for
+    # carrier-status at all (resolve_predict/resolve_explain take a drug and a
+    # gene/variant, never a phenotype) — exactly like the pre-existing
+    # HLA_B_15_02_NEGATIVE / HLA_B_57_01_NEGATIVE entries, HLA_B_58_01_NEGATIVE
+    # exists in phenotypes.json purely as documentation of the non-risk state
+    # and is never the target of any relationship. The honest test is that
+    # this holds — the model must never fabricate a relationship off the
+    # negative phenotype.
+    check(
+        "HLA_B_58_01_NEGATIVE phenotype is defined (documents the non-carrier state)",
+        "HLA_B_58_01_NEGATIVE" in kb.phenotypes,
+        "phenotype missing from phenotypes.json",
+    )
+    check(
+        "HLA_B_58_01_NEGATIVE is never referenced by any relationship (no fabricated negative-carrier risk)",
+        all(rel.get("phenotype") != "HLA_B_58_01_NEGATIVE" for rel in kb.relationships.values()),
+        "found a relationship keyed off the non-carrier phenotype",
+    )
+    check(
+        "HLA_B_58_01_NEGATIVE behaves exactly like the existing HLA_B_15_02_NEGATIVE / HLA_B_57_01_NEGATIVE precedent (also unreferenced)",
+        all(
+            rel.get("phenotype") not in ("HLA_B_15_02_NEGATIVE", "HLA_B_57_01_NEGATIVE", "HLA_B_58_01_NEGATIVE")
+            for rel in kb.relationships.values()
+        ),
+        "an existing negative phenotype is referenced by a relationship, so the precedent this test relies on no longer holds",
+    )
+
+    # 7c. Population frequency evidence: 9 CPIC Table S2 allele-frequency rows,
+    # each a single documented data point (never a probability of harm).
+    check(
+        "Allopurinol/HLA-B*58:01 produces population signals",
+        len(allopurinol_result.population_signals) == 9,
+        f"got {len(allopurinol_result.population_signals)}",
+    )
+    check(
+        "Allopurinol's population signals are all explicitly tagged allele_frequency",
+        all(s["frequency_type"] == "allele_frequency" for s in allopurinol_result.population_signals),
+        f"got frequency_types {[s['frequency_type'] for s in allopurinol_result.population_signals]}",
+    )
+    check(
+        "Allopurinol's population signals are all HLA-B*58:01 (no cross-variant leakage)",
+        all(s["variant"] == "HLA-B*58:01" for s in allopurinol_result.population_signals),
+        f"got variants {[s['variant'] for s in allopurinol_result.population_signals]}",
+    )
+    expected_allopurinol_populations = {
+        "EUROPEAN", "EAST_ASIAN", "SOUTH_ASIAN", "SUB_SAHARAN_AFRICAN",
+        "SOUTHWEST_ASIAN", "PACIFIC_ISLANDER", "LATIN_AMERICAN",
+    }
+    check(
+        "Allopurinol's population signals cover exactly the CPIC Table S2 populations mapped for this addition",
+        {s["population"] for s in allopurinol_result.population_signals} == expected_allopurinol_populations,
+        f"got {sorted({s['population'] for s in allopurinol_result.population_signals})}",
+    )
+    dumped = json.dumps(allopurinol_result.to_dict())
+    check(
+        "allopurinol resolver output has no field/key literally named 'probability'",
+        not any("probability" in k.lower() for sig in allopurinol_result.population_signals for k in sig.keys()),
+        "found a 'probability'-named key in a population signal",
+    )
+    mentions = re.findall(r".{0,12}probability", dumped, re.IGNORECASE)
+    check(
+        "allopurinol: every mention of 'probability' in the output is a disclaimer, never an assertion",
+        all("not a" in m.lower() for m in mentions),
+        f"non-disclaiming 'probability' mention(s): {mentions}",
+    )
+    check(
+        "allopurinol's allele-frequency signals are never labeled as carrier/phenotype/adverse-event frequency",
+        not any(
+            bad in dumped.lower()
+            for bad in ("carrier_frequency", "phenotype_frequency", "adverse_event_probability")
+        ),
+        "found a disallowed frequency label in allopurinol's resolver output",
+    )
+
+    # 7d. Unknown/unsupported behavior on the new pathway.
+    r = resolve_predict(kb, "Compound-New-Uric-1", "HLA-B*58:01")
+    check(
+        "unknown drug on the new HLA-B*58:01 pathway -> PRECEDENT, not DIRECT (mechanistic precedent only)",
+        r.status == STATUS_PRECEDENT,
+        f"got {r.status}",
+    )
+    check(
+        "that PRECEDENT priority is capped at MODERATE (RULE-002/PRECEDENT ceiling applies to the new pathway too)",
+        r.priority in ("MODERATE", "LOW"),
+        f"got {r.priority} (underlying severity {r.severity})",
+    )
+    r = resolve_predict(kb, "Allopurinol", "HLA-B*99:99")
+    check(
+        "Allopurinol against an unsupported/unknown HLA-B allele -> INSUFFICIENT_EVIDENCE (no invented risk)",
+        r.status == STATUS_INSUFFICIENT_EVIDENCE,
+        f"got {r.status}",
+    )
+    r = resolve_explain(kb, "not-a-real-drug-xyz")
+    check(
+        "completely unknown drug -> INSUFFICIENT_EVIDENCE",
+        r.status == STATUS_INSUFFICIENT_EVIDENCE,
+        f"got {r.status}",
     )
 
     print()

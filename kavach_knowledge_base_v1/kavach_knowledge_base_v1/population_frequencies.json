@@ -574,5 +574,113 @@
     "source_ids": [
       "CPIC-CLOPIDOGREL-SUPP-2011"
     ]
+  },
+  {
+    "variant": "HLA-B*58:01",
+    "population": "EUROPEAN",
+    "frequency_type": "allele_frequency",
+    "frequency_min": 0.0073,
+    "frequency_max": 0.0073,
+    "unit": "proportion",
+    "notes": "CPIC allopurinol guideline Supplement v2.0, Table S2 reports an HLA-B*58:01 allele frequency of 0.0073 (0.73%) for 'US NMDP European Caucasian' (OMB category: White; sample size 1,242,890). Mapped to the EUROPEAN population id as the closest existing Kavach category for this label. This is an allele frequency only — not a carrier frequency, not a phenotype frequency, and not a probability of adverse drug reaction.",
+    "source_ids": [
+      "CPIC-ALLOPURINOL-SUPP-2015"
+    ]
+  },
+  {
+    "variant": "HLA-B*58:01",
+    "population": "EAST_ASIAN",
+    "frequency_type": "allele_frequency",
+    "frequency_min": 0.0874,
+    "frequency_max": 0.0874,
+    "unit": "proportion",
+    "notes": "CPIC allopurinol guideline Supplement v2.0, Table S2 reports an HLA-B*58:01 allele frequency of 0.0874 (8.74%) for 'US NMDP Chinese' (OMB category: Asian; sample size 99,672). Mapped to the EAST_ASIAN population id as the closest existing Kavach category for this label. This is an allele frequency only — not a carrier frequency, not a phenotype frequency, and not a probability of adverse drug reaction.",
+    "source_ids": [
+      "CPIC-ALLOPURINOL-SUPP-2015"
+    ]
+  },
+  {
+    "variant": "HLA-B*58:01",
+    "population": "EAST_ASIAN",
+    "frequency_type": "allele_frequency",
+    "frequency_min": 0.0603,
+    "frequency_max": 0.0603,
+    "unit": "proportion",
+    "notes": "CPIC allopurinol guideline Supplement v2.0, Table S2 reports an HLA-B*58:01 allele frequency of 0.0603 (6.03%) for 'US NMDP Korean' (OMB category: Asian; sample size 77,584). Mapped to the EAST_ASIAN population id as the closest existing Kavach category for this label. This is an allele frequency only — not a carrier frequency, not a phenotype frequency, and not a probability of adverse drug reaction.",
+    "source_ids": [
+      "CPIC-ALLOPURINOL-SUPP-2015"
+    ]
+  },
+  {
+    "variant": "HLA-B*58:01",
+    "population": "EAST_ASIAN",
+    "frequency_type": "allele_frequency",
+    "frequency_min": 0.0076,
+    "frequency_max": 0.0076,
+    "unit": "proportion",
+    "notes": "CPIC allopurinol guideline Supplement v2.0, Table S2 reports an HLA-B*58:01 allele frequency of 0.0076 (0.76%) for 'US NMDP Japanese' (OMB category: Asian; sample size 24,582), markedly lower than the Chinese and Korean rows above — the allele's frequency varies substantially within CPIC's own 'Asian' grouping. Mapped to the EAST_ASIAN population id as the closest existing Kavach category for this label. This is an allele frequency only — not a carrier frequency, not a phenotype frequency, and not a probability of adverse drug reaction.",
+    "source_ids": [
+      "CPIC-ALLOPURINOL-SUPP-2015"
+    ]
+  },
+  {
+    "variant": "HLA-B*58:01",
+    "population": "SOUTH_ASIAN",
+    "frequency_type": "allele_frequency",
+    "frequency_min": 0.042,
+    "frequency_max": 0.042,
+    "unit": "proportion",
+    "notes": "CPIC allopurinol guideline Supplement v2.0, Table S2 reports an HLA-B*58:01 allele frequency of 0.042 (4.2%) for 'US NMDP South Asian Indian' (OMB category: Asian; sample size 185,391). Mapped to the SOUTH_ASIAN population id as the closest existing Kavach category for this label. This is an allele frequency only — not a carrier frequency, not a phenotype frequency, and not a probability of adverse drug reaction.",
+    "source_ids": [
+      "CPIC-ALLOPURINOL-SUPP-2015"
+    ]
+  },
+  {
+    "variant": "HLA-B*58:01",
+    "population": "SUB_SAHARAN_AFRICAN",
+    "frequency_type": "allele_frequency",
+    "frequency_min": 0.042,
+    "frequency_max": 0.042,
+    "unit": "proportion",
+    "notes": "CPIC allopurinol guideline Supplement v2.0, Table S2 reports an HLA-B*58:01 allele frequency of 0.042 (4.2%) for 'US NMDP African' (OMB category: Black or African American; sample size 28,557). Mapped to the SUB_SAHARAN_AFRICAN population id as the closest existing Kavach category for CPIC's 'African' label, consistent with the same mapping used for the CYP2D6/CYP2C19 allele-frequency rows above. This is an allele frequency only — not a carrier frequency, not a phenotype frequency, and not a probability of adverse drug reaction.",
+    "source_ids": [
+      "CPIC-ALLOPURINOL-SUPP-2015"
+    ]
+  },
+  {
+    "variant": "HLA-B*58:01",
+    "population": "SOUTHWEST_ASIAN",
+    "frequency_type": "allele_frequency",
+    "frequency_min": 0.0173,
+    "frequency_max": 0.0173,
+    "unit": "proportion",
+    "notes": "CPIC allopurinol guideline Supplement v2.0, Table S2 reports an HLA-B*58:01 allele frequency of 0.0173 (1.73%) for 'US NMDP Middle Eastern or North Coast of Africa' (OMB category: White; sample size 70,890). Mapped to the SOUTHWEST_ASIAN population id as the closest existing Kavach category for CPIC's 'Middle Eastern' label, consistent with the same mapping used for the CYP2D6/CYP2C19 allele-frequency rows above. This is an allele frequency only — not a carrier frequency, not a phenotype frequency, and not a probability of adverse drug reaction.",
+    "source_ids": [
+      "CPIC-ALLOPURINOL-SUPP-2015"
+    ]
+  },
+  {
+    "variant": "HLA-B*58:01",
+    "population": "PACIFIC_ISLANDER",
+    "frequency_type": "allele_frequency",
+    "frequency_min": 0.0145,
+    "frequency_max": 0.0145,
+    "unit": "proportion",
+    "notes": "CPIC allopurinol guideline Supplement v2.0, Table S2 reports an HLA-B*58:01 allele frequency of 0.0145 (1.45%) for 'US NMDP Hawaiian or other Pacific Islander' (OMB category: Native Hawaiian or Other Pacific Islander; sample size 11,499). Mapped to the PACIFIC_ISLANDER population id. This is an allele frequency only — not a carrier frequency, not a phenotype frequency, and not a probability of adverse drug reaction.",
+    "source_ids": [
+      "CPIC-ALLOPURINOL-SUPP-2015"
+    ]
+  },
+  {
+    "variant": "HLA-B*58:01",
+    "population": "LATIN_AMERICAN",
+    "frequency_type": "allele_frequency",
+    "frequency_min": 0.0142,
+    "frequency_max": 0.0142,
+    "unit": "proportion",
+    "notes": "CPIC allopurinol guideline Supplement v2.0, Table S2 reports an HLA-B*58:01 allele frequency of 0.0142 (1.42%) for 'US NMDP Hispanic South or Central American' (OMB category: Hispanic or Latino; sample size 146,714). Mapped to the LATIN_AMERICAN population id as the closest existing Kavach category for this label. This is an allele frequency only — not a carrier frequency, not a phenotype frequency, and not a probability of adverse drug reaction.",
+    "source_ids": [
+      "CPIC-ALLOPURINOL-SUPP-2015"
+    ]
   }
 ]

@@ -95,5 +95,20 @@
     "source_ids": [
       "CPIC-ABACAVIR-2014"
     ]
+  },
+  {
+    "id": "REL-ALLOPURINOL-HLA-B-5801",
+    "drug": "allopurinol",
+    "variant": "HLA-B*58:01",
+    "phenotype": "HLA_B_58_01_POSITIVE",
+    "mechanism": "IMMUNE_MEDIATED",
+    "effect": "oxypurinol_binds_HLA_B_5801_peptide_groove_and_activates_cytotoxic_T_cells",
+    "clinical_outcome": "allopurinol_induced_severe_cutaneous_adverse_reaction_SJS_TEN_or_DRESS",
+    "severity": "critical",
+    "evidence_level": "strong",
+    "source_ids": [
+      "CPIC-ALLOPURINOL-2013",
+      "CPIC-ALLOPURINOL-SUPP-2015"
+    ]
   }
 ]

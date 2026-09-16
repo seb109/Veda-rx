@@ -58,5 +58,17 @@
     "gene": "HLA-B",
     "label": "HLA-B*57:01 non-carrier",
     "activity": "non_carrier"
+  },
+  {
+    "id": "HLA_B_58_01_POSITIVE",
+    "gene": "HLA-B",
+    "label": "HLA-B*58:01 carrier",
+    "activity": "carrier"
+  },
+  {
+    "id": "HLA_B_58_01_NEGATIVE",
+    "gene": "HLA-B",
+    "label": "HLA-B*58:01 non-carrier",
+    "activity": "non_carrier"
   }
 ]
